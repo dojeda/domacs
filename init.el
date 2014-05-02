@@ -33,7 +33,10 @@
 (when (eq system-type 'darwin)
   (require 'osx-tweaks))
 
-;; Module 4: key configuration
+;; Module 4: programming
+(require 'programming)
+
+;; Module 5: key configuration
 (require 'key-config)
 
 (message "Emacs is ready!")

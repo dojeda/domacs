@@ -19,6 +19,13 @@
     diminish      ;; avoid clutter in modeline
     volatile-highlights ;; highlight some buffer modifications
     helm          ;; command narrowing on steroids
+    auctex        ;; latex
+    org           ;; org-mode
+    ido           ;; menu for changes around buffers and files
+    flx           ;; fuzzy matching
+    flx-ido       ;; flx and ido
+    ido-vertical-mode ;; vertical ido
+    ido-ubiquitous  ;; ???
     ) 
   "A list of packages installed at launch")
 

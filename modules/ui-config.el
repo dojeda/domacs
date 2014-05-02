@@ -69,4 +69,21 @@
 (projectile-global-mode t)
 (diminish 'projectile-mode "Prjl")
 
+;; ido
+(ido-mode t)
+(setq ido-enable-prefix nil          ;; match all string, not only the prefix
+      ido-enable-flex-matching t     ;; flexible matching: if there is no match, search containing characters
+      ido-create-new-buffer 'always  ;; create new buffer if no match is found
+      ido-use-filename-at-point nil  ;; do not try to guess using current point
+      ;;ido-max-window-height 10
+      ido-save-directory-list-file (expand-file-name "ido.last" domacs/savefile-dir)
+      ido-auto-merge-work-directories-length -1 ;; ???
+      ido-default-file-method 'selected-window ;; use same window to visit a file
+      ;; ido-ignore-extensions t
+      ido-file-extensions-order '(".org" ".c" ".cpp" ".c" ".h" ".txt"))
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+(ido-vertical-mode)
+(ido-ubiquitous-mode 1)
+
 (provide 'ui-config)
