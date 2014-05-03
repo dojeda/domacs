@@ -26,6 +26,7 @@
     flx-ido       ;; flx and ido
     ido-vertical-mode ;; vertical ido
     ido-ubiquitous  ;; ???
+    multiple-cursors ;; multiple cursors
     ) 
   "A list of packages installed at launch")
 
