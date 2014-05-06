@@ -14,6 +14,8 @@
 
 ;; Magit keys
 (global-set-key (kbd "C-x g") 'magit-status)
+;; git messenger
+(global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
 
 ;; IBuffer for easier buffer switching with C-x C-b
 (global-set-key (kbd "C-x C-b") 'ibuffer)

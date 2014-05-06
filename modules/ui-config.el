@@ -25,6 +25,9 @@
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
+;; smart mode line settings
+(setq sml/theme 'dark)
+(sml/setup)
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -66,8 +69,12 @@
 ;; projectile
 (require 'projectile)
 (setq projectile-cache-file (expand-file-name  "projectile.cache" domacs/savefile-dir))
+(setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" domacs/savefile-dir))
 (projectile-global-mode t)
 (diminish 'projectile-mode "Prjl")
+
+;; helm
+;;(helm-mode) ;; not sure how this works yet: it uses another buffer to complete commands.
 
 ;; ido
 (ido-mode t)
@@ -83,7 +90,15 @@
       ido-file-extensions-order '(".org" ".c" ".cpp" ".c" ".h" ".txt"))
 (flx-ido-mode 1)
 (setq ido-use-faces nil)
-(ido-vertical-mode)
+(ido-vertical-mode 1)
 (ido-ubiquitous-mode 1)
+
+;; guide-key
+(setq guide-key/guide-key-sequence '("C-x r" ;; rectangles
+                                     "C-x 4" ;; ? ido ?
+                                     "C-x 5" ;; frames
+                                     "C-c p" ;; projectile
+                                     ))
+(guide-key-mode 1)
 
 (provide 'ui-config)

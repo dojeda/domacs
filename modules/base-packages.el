@@ -4,8 +4,8 @@
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;;(add-to-list 'package-archives
+;;             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 
@@ -13,10 +13,12 @@
 (defvar domacs/required-packages
   '(zenburn-theme ;; color theme
     magit         ;; great git package
+    git-messenger ;; show commit message at point
     yasnippet     ;; snippets
     nlinum        ;; line number package that uses the fringe
     projectile    ;; project management mode
-    diminish      ;; avoid clutter in modeline
+    diminish      ;; avoid clutter in modeline (maybe it can be replace by smart-mode-line)
+    smart-mode-line ;; another mode line theme
     volatile-highlights ;; highlight some buffer modifications
     helm          ;; command narrowing on steroids
     auctex        ;; latex
@@ -30,6 +32,10 @@
     iedit         ;; modify multiple regions (useful for refactoring)
     auto-complete ;; auto complete
     auto-complete-clang ;; clang+auto complete
+    flycheck      ;; on-the-fly syntax checker
+    cpputils-cmake;; help auto-complete configure itself with cmake
+    guide-key     ;; help for complicated key bindings
+    cmake-mode    ;; cmake 
     ) 
   "A list of packages installed at launch")
 

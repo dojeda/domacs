@@ -16,4 +16,7 @@
 (setq mac-option-modifier 'super)
 (message "Command is now bound to META and Option is bound to SUPER.")
 
+; Fix iedit bug in Mac
+(define-key global-map (kbd "C-c ;") 'iedit-mode)
+
 (provide 'osx-tweaks)
