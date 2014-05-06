@@ -27,6 +27,9 @@
     ido-vertical-mode ;; vertical ido
     ido-ubiquitous  ;; ???
     multiple-cursors ;; multiple cursors
+    iedit         ;; modify multiple regions (useful for refactoring)
+    auto-complete ;; auto complete
+    auto-complete-clang ;; clang+auto complete
     ) 
   "A list of packages installed at launch")
 
