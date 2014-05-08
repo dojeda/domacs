@@ -20,6 +20,11 @@
 ;; Configure where customizations are saved
 (setq custom-file (expand-file-name "custom.el" domacs/personal-dir))
 
+;; load the personal settings (this includes `custom-file')
+(when (file-exists-p domacs/personal-dir)
+  (message "Loading personal configuration files in %s..." domacs/personal-dir)
+  (mapc 'load (directory-files domacs/personal-dir 't "^[^#].*el$")))
+
 ;; Setup path to load modules
 (add-to-list 'load-path domacs/modules-dir)
 

@@ -8,8 +8,8 @@
 (require 'auto-complete-config) ;; default config for auto-complete
 (require 'auto-complete-clang)  ;; auto-complete + clang
 ;;(ac-config-default)
-(setq ac-auto-start 2) ;; start completion after 2 characters
-(setq ac-quick-help-delay 0.5) ;; delay for quick help (what is quick help?)
+(setq ac-auto-start nil) ;; start completion after N characters, here I disable it (if I want to complete, I call auto-complete)
+(setq ac-quick-help-delay 1.5) ;; delay for quick help, in seconds (quick help shows more info about the var/method)
 (setq ac-comphist-file (expand-file-name  "ac-comphist.dat" domacs/savefile-dir))
 
 ;; Configure the auto-complete packages
