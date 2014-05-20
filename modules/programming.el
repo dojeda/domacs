@@ -182,4 +182,6 @@ save the pointer marker if tag is found"
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
 
+(add-hook 'python-mode-hook 'jedi:setup)
+
 (provide 'programming)

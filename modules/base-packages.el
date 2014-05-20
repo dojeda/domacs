@@ -35,7 +35,8 @@
     flycheck      ;; on-the-fly syntax checker
     cpputils-cmake;; help auto-complete configure itself with cmake
     guide-key     ;; help for complicated key bindings
-    cmake-mode    ;; cmake 
+    cmake-mode    ;; cmake
+    jedi          ;; python completion tool
     ) 
   "A list of packages installed at launch")
 
