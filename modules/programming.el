@@ -172,9 +172,10 @@ save the pointer marker if tag is found"
 (defun domacs/c-hook ()
   (setq c-basic-offset 4) ;; ?
   (local-set-key [f9] 'toggle-source-header) ;; F9 changes source/header
+  (local-set-key (kbd "C-c C-c") 'compile)
   (local-set-key (kbd "s-<up>") 'domacs/semantic-pop-tag-mark)      ;; super-up pops tag
   (local-set-key (kbd "s-<down>") 'domacs/semantic-goto-definition) ;; super-down goes to tag definition
-  (flymake-mode 1)
+  (flycheck-mode 1)
 
   )
 
