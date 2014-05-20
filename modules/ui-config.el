@@ -41,6 +41,12 @@
 ;; delete the selection with a keypress
 (delete-selection-mode t)
 
+;; save backups in a temporal directory, not in my filesystem
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;; revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
 
