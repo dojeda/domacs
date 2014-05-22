@@ -50,6 +50,13 @@
 ;; revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
 
+;; uniquify: manage buffers with the same name properly
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward) ;; use /dir1/dir2/filename style
+(setq uniquify-separator "/")              ;; separate with /
+(setq uniquify-after-kill-buffer-p)        ;; rename buffers when another is closed
+(setq uniquify-ignore-buffers-re "^\\*")   ;; ignore special buffers
+
 ;; diminish keeps the modeline tidy
 (require 'diminish)
 
