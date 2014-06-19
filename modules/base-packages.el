@@ -26,6 +26,7 @@
     ido           ;; menu for changes around buffers and files
     flx           ;; fuzzy matching
     flx-ido       ;; flx and ido
+    smex          ;; fuxxy auto completion for M-x
     ido-vertical-mode ;; vertical ido
     ido-ubiquitous  ;; ???
     multiple-cursors ;; multiple cursors
@@ -37,6 +38,8 @@
     guide-key     ;; help for complicated key bindings
     cmake-mode    ;; cmake
     jedi          ;; python completion tool
+    ack-and-a-half;; grep-like search for programmers
+    matlab-mode   ;; matlab mode
     ) 
   "A list of packages installed at launch")
 

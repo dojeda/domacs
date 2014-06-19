@@ -76,11 +76,19 @@
 ;; (add-to-list 'load-path "~/apps/cpputils-cmake" )
 (require 'cpputils-cmake)
 (defun domacs/cppcm-hook ()
+  (message "cppcm-hook of %s" buffer-file-name)
   (cppcm-reload-all)
   ;; call semantic-add-system-include for all items in cppcm-include-dirs
   (dolist (myvar cppcm-include-dirs)
     (semantic-add-system-include (replace-regexp-in-string "-I" "" myvar))))
-(add-hook 'c-mode-common-hook 'domacs/cppcm-hook)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
+                              (string-match "^/usr/src/linux/include/.*" buffer-file-name)
+                              (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
+                    (domacs/cppcm-hook)
+                  ))))
 ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
 ;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
@@ -168,15 +176,36 @@ save the pointer marker if tag is found"
       '(("\\.cmake\\'" . cmake-mode))
       auto-mode-alist))
 
+;; ack
+(require 'ack-and-a-half)
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
+;; python
+(setq
+ python-shell-interpreter "ipython2"
+ python-shell-interpreter-args "--pylab"
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code
+   "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code
+   "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code
+   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+
 ;; HOOKS
 (defun domacs/c-hook ()
   (setq c-basic-offset 4) ;; ?
+  (local-set-key [f5] 'goto-line)           ;; F5 is go to line
   (local-set-key [f9] 'toggle-source-header) ;; F9 changes source/header
   (local-set-key (kbd "C-c C-c") 'compile)
   (local-set-key (kbd "s-<up>") 'domacs/semantic-pop-tag-mark)      ;; super-up pops tag
   (local-set-key (kbd "s-<down>") 'domacs/semantic-goto-definition) ;; super-down goes to tag definition
   (flycheck-mode 1)
-
+  (subword-mode 1) ;; move in CamelCase words
   )
 
 (add-hook 'c-mode-hook 'domacs/c-hook)
