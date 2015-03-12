@@ -185,7 +185,7 @@ save the pointer marker if tag is found"
 
 ;; python
 (setq
- python-shell-interpreter "ipython2"
+ python-shell-interpreter "ipython3"
  python-shell-interpreter-args "--pylab"
  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
@@ -195,6 +195,33 @@ save the pointer marker if tag is found"
    "';'.join(module_completion('''%s'''))\n"
  python-shell-completion-string-code
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+
+
+;; R
+(require 'poly-R)
+(require 'poly-markdown)
+(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+(defun rmarkdown-render ()
+  "run rmarkdown::render() on the current file and display results in buffer *Shell Command Output*"
+  (interactive)
+  (let ((render-command (read-string "Render command: "
+                                     (format "render('%s',%s);"
+                                             (shell-quote-argument (buffer-file-name))
+                                             "'all'"
+                                             ))))
+    (shell-command
+     (message
+      "Rscript -e \"withCallingHandlers({library(rmarkdown); library(pander); %s}, error = function(e) print(sys.calls()))\" &"
+      render-command
+      ))
+    ))
+(global-set-key (kbd "C-c <C-return>") 'rmarkdown-render)
+
+;; R + ESS
+(message "Loading ESS")
+(add-to-list 'load-path "/Users/david/apps/ESS/lisp")
+(load "ess-site")
+(message "Finished loading ESS")
 
 ;; HOOKS
 (defun domacs/c-hook ()
