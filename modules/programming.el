@@ -2,6 +2,7 @@
 
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 8)            ;; but maintain correct appearance [????]
+(setq compilation-scroll-output t)    ;; the compilation output should scroll down automatically
 
 ;; auto-complete configuration
 (require 'auto-complete)
@@ -44,8 +45,11 @@
   (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
   ;;(setq ac-sources (append '(ac-source-yasnippet) ac-sources)))
 (add-hook 'c-mode-common-hook 'domacs/ac-cc-mode-setup)
-
-(domacs/ac-config)
+(add-hook 'c-mode-common-hook
+      (lambda ()
+       (font-lock-add-keywords nil
+        '(("\\<\\(true\\|false\\)\\>" .
+           font-lock-keyword-face)))))
 
 
 ;; semantic

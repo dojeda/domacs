@@ -1,7 +1,8 @@
 ;; Load user interface settings
 
 ;; color theme
-(load-theme 'zenburn t)
+;;(load-theme 'zenburn t)
+(load-theme 'domacs-color t)
 
 ;; no toolbar
 (when (fboundp 'tool-bar-mode)

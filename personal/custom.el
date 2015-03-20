@@ -13,10 +13,12 @@
  '(minimap-recenter-type (quote relative))
  '(minimap-update-delay 0.75)
  '(org-image-actual-width 500)
- '(python-shell-interpreter "ipython3"))
+ '(python-shell-interpreter "ipython3" t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(hl-line ((t (:inherit region))))
+ '(linum ((t (:background "#282828" :foreground "#fdf4c1"))))
  '(minimap-font-face ((t (:height 30 :family "DejaVu Sans Mono")))))
