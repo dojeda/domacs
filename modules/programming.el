@@ -39,11 +39,12 @@
   (setq flycheck-clang-language-standard "c++11")
   (global-auto-complete-mode t)
   ;; add a key for completion
-  (define-key ac-mode-map [(meta return)] 'auto-complete)
+  (define-key ac-mode-map [(meta return)] 'ac-complete-clang)
   )
 (defun domacs/ac-cc-mode-setup ()
   (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
   ;;(setq ac-sources (append '(ac-source-yasnippet) ac-sources)))
+(add-hook 'c-mode-common-hook 'domacs/ac-config)
 (add-hook 'c-mode-common-hook 'domacs/ac-cc-mode-setup)
 (add-hook 'c-mode-common-hook
       (lambda ()
@@ -79,6 +80,7 @@
 ;; cpputils
 ;; (add-to-list 'load-path "~/apps/cpputils-cmake" )
 (require 'cpputils-cmake)
+;;(setq cppcm-debug t)
 (defun domacs/cppcm-hook ()
   (message "cppcm-hook of %s" buffer-file-name)
   (cppcm-reload-all)
