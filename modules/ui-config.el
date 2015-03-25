@@ -28,7 +28,7 @@
 (size-indication-mode t)
 ;; smart mode line settings
 (setq sml/theme 'dark)
-(sml/setup)
+;;(sml/setup)
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -114,5 +114,9 @@
                                      "C-c p" ;; projectile
                                      ))
 (guide-key-mode 1)
+
+;; purpose-mode: automatic window configuration
+(require 'window-purpose)
+(purpose-mode 1)
 
 (provide 'ui-config)

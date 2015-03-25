@@ -40,6 +40,7 @@
     jedi          ;; python completion tool
     ack-and-a-half;; grep-like search for programmers
     matlab-mode   ;; matlab mode
+    window-purpose;; window configuration with purposes
     ) 
   "A list of packages installed at launch")
 
