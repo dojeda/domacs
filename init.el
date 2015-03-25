@@ -44,6 +44,4 @@
 ;; Module 5: key configuration
 (require 'key-config)
 
-(load-theme 'domacs-color t)
-
 (message "Emacs is ready!")
