@@ -221,6 +221,9 @@ save the pointer marker if tag is found"
     ))
 (global-set-key (kbd "C-c <C-return>") 'rmarkdown-render)
 
+;; python + purpose mode
+;;(require 'window-purpose)
+
 ;; R + ESS
 (message "Loading ESS")
 (add-to-list 'load-path "/Users/david/apps/ESS/lisp")
