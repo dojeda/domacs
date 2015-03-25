@@ -1,4 +1,4 @@
-(deftheme domacs/default-color-theme "Default color theme for domacs")
+(deftheme domacs-color "Default color theme for domacs")
   (custom-theme-set-faces 'domacs-color
    '(default ((t (:foreground "#fdf4c1" :background "#282828" ))))
    '(cursor ((t (:background "#fdf4c1" ))))
@@ -16,4 +16,4 @@
    '(minibuffer-prompt ((t (:foreground "#b8bb26" :bold t ))))
    '(font-lock-warning-face ((t (:foreground "red" :bold t ))))
    )
-(provide-theme 'domacs/default-color-theme)
+(provide-theme 'domacs-color)

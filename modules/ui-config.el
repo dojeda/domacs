@@ -2,7 +2,7 @@
 
 ;; color theme
 ;;(load-theme 'zenburn t)
-(load-theme 'domacs/default-color-theme t)
+(load-theme 'domacs-color t)
 
 ;; no toolbar
 (when (fboundp 'tool-bar-mode)
