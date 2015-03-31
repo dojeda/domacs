@@ -4,6 +4,12 @@
 (setq-default tab-width 8)            ;; but maintain correct appearance [????]
 (setq compilation-scroll-output t)    ;; the compilation output should scroll down automatically
 
+;; test: C/C++ headers have a dedicated mode so that purpose-mode puts those buffers in a dedicated window
+(define-derived-mode c-header-mode
+  c++-mode
+  "Header"
+  "A test of a C/C++ header mode")
+
 ;; auto-complete configuration
 (require 'auto-complete)
 (require 'auto-complete-config) ;; default config for auto-complete
@@ -104,7 +110,9 @@
 (defvar c++-header-ext-regexp "\\.\\(hpp\\|hxx\\|h\\|\hh\\|H\\)$")
 (defvar c++-source-ext-regexp "\\.\\(cpp\\|cxx\\|c\\|\cc\\|C\\)$")
 (defvar c++-source-extension-list '("c" "cc" "C" "cpp" "cxx" "c++"))
-(defvar c++-header-extension-list '("h" "hh" "H" "hpp" "hxx"))(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(defvar c++-header-extension-list '("h" "hh" "H" "hpp" "hxx"))
+;;(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c-header-mode))
 
 (defun toggle-source-header()
   "Switches to the source buffer if currently in the header buffer and vice versa."

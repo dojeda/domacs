@@ -118,5 +118,12 @@
 ;; purpose-mode: automatic window configuration
 (require 'window-purpose)
 (purpose-mode 1)
+(add-to-list 'purpose-user-mode-purposes '(python-mode . py))
+(add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
+(add-to-list 'purpose-user-mode-purposes '(c++-mode . cpp))
+(add-to-list 'purpose-user-mode-purposes '(c-header-mode . h))
+(add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))
+(purpose-compile-user-configuration)
+
 
 (provide 'ui-config)
