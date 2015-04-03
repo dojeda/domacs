@@ -26,4 +26,12 @@
 ;; IBuffer for easier buffer switching with C-x C-b
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Ace-jump mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; Expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (provide 'key-config)

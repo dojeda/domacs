@@ -41,6 +41,9 @@
     ack-and-a-half;; grep-like search for programmers
     matlab-mode   ;; matlab mode
     window-purpose;; window configuration with purposes
+    ace-jump-mode ;; quick jumps
+    ;;idomenu       ;; TESTING: jumps to symbol
+    expand-region ;; expand selection by semantic units (semantics as in the meaning not the mode, you silly)
     ) 
   "A list of packages installed at launch")
 
