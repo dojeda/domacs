@@ -27,8 +27,18 @@
 (column-number-mode t)
 (size-indication-mode t)
 ;; smart mode line settings
-(setq sml/theme 'dark)
+;;(setq sml/theme 'dark)
 ;;(sml/setup)
+;; power-line settings
+;; (require 'powerline)
+;; (powerline-default-theme)
+(require 'main-line)
+(setq main-line-separator-style "rounded")
+(defvar domacs/no-srgb-please t ;; <- put t to disable srgb in osx-tweaks
+  "Please don't use the srgb option on OSX, because it breaks powerline and main-line")
+
+;; Who uses abbrev-mode ???
+(abbrev-mode 0)
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -37,7 +47,7 @@
 (winner-mode +1)
 
 ;; line number mode at fringe
-(global-nlinum-mode)
+;;(global-nlinum-mode)
 
 ;; delete the selection with a keypress
 (delete-selection-mode t)
@@ -60,6 +70,13 @@
 
 ;; diminish keeps the modeline tidy
 (require 'diminish)
+;;(diminish auto-complete-mode "Ⓐ")
+;;(diminish cc-mode "Ⓒ")
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Ⓨ"))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode " Ⓕ"))
+(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " Ⓐ"))
+;;(eval-after-load "cc-mode" '(diminish 'c-mode " Ⓒ")) ;; does not work!
+(eval-after-load "abbrev" '(diminish 'abbrev-mode))
 
 ;; saveplace remembers your location in a file when saving files
 (require 'saveplace)
@@ -85,7 +102,9 @@
 (setq projectile-cache-file (expand-file-name  "projectile.cache" domacs/savefile-dir))
 (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" domacs/savefile-dir))
 (projectile-global-mode t)
-(diminish 'projectile-mode "Prjl")
+(eval-after-load "projectile" '(diminish 'projectile-mode " ☢"))
+;;(diminish "projectile-mode" "Ⓟ")
+;;(diminish 'projectile-mode "Prjl")
 
 ;; helm
 ;;(helm-mode) ;; not sure how this works yet: it uses another buffer to complete commands.
@@ -114,6 +133,7 @@
                                      "C-c p" ;; projectile
                                      ))
 (guide-key-mode 1)
+(eval-after-load "guide-key" '(diminish 'guide-key-mode))
 
 ;; purpose-mode: automatic window configuration
 (require 'window-purpose)
@@ -124,6 +144,6 @@
 (add-to-list 'purpose-user-mode-purposes '(c-header-mode . h))
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))
 (purpose-compile-user-configuration)
-
+(eval-after-load "window-purpose" '(diminish 'purpose-mode " ⓦ"))
 
 (provide 'ui-config)

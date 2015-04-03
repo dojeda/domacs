@@ -17,8 +17,10 @@
     yasnippet     ;; snippets
     nlinum        ;; line number package that uses the fringe
     projectile    ;; project management mode
-    diminish      ;; avoid clutter in modeline (maybe it can be replace by smart-mode-line)
-    smart-mode-line ;; another mode line theme
+    diminish      ;; avoid clutter in modeline
+    ;;smart-mode-line ;; another mode line theme
+    ;;powerline       ;; another mode line theme 
+    main-line     ;; another mode line theme
     volatile-highlights ;; highlight some buffer modifications
     helm          ;; command narrowing on steroids
     auctex        ;; latex

@@ -19,4 +19,13 @@
 ; Fix iedit bug in Mac
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
+;; color is wrong for main-line or powerline
+(if domacs/no-srgb-please
+    (setq ns-use-srgb-colorspace nil)
+    ()
+  )
+
+
+
+
 (provide 'osx-tweaks)
