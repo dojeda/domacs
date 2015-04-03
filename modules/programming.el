@@ -191,11 +191,11 @@ save the pointer marker if tag is found"
       auto-mode-alist))
 
 ;; ack
-(require 'ack-and-a-half)
-(defalias 'ack 'ack-and-a-half)
-(defalias 'ack-same 'ack-and-a-half-same)
-(defalias 'ack-find-file 'ack-and-a-half-find-file)
-(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+;; (require 'ack-and-a-half)
+;; (defalias 'ack 'ack-and-a-half)
+;; (defalias 'ack-same 'ack-and-a-half-same)
+;; (defalias 'ack-find-file 'ack-and-a-half-find-file)
+;; (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
 ;; python
 (setq
@@ -212,24 +212,24 @@ save the pointer marker if tag is found"
 
 
 ;; R
-(require 'poly-R)
-(require 'poly-markdown)
-(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
-(defun rmarkdown-render ()
-  "run rmarkdown::render() on the current file and display results in buffer *Shell Command Output*"
-  (interactive)
-  (let ((render-command (read-string "Render command: "
-                                     (format "render('%s',%s);"
-                                             (shell-quote-argument (buffer-file-name))
-                                             "'all'"
-                                             ))))
-    (shell-command
-     (message
-      "Rscript -e \"withCallingHandlers({library(rmarkdown); library(pander); %s}, error = function(e) print(sys.calls()))\" &"
-      render-command
-      ))
-    ))
-(global-set-key (kbd "C-c <C-return>") 'rmarkdown-render)
+;; (require 'poly-R)
+;; (require 'poly-markdown)
+;; (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+;; (defun rmarkdown-render ()
+;;   "run rmarkdown::render() on the current file and display results in buffer *Shell Command Output*"
+;;   (interactive)
+;;   (let ((render-command (read-string "Render command: "
+;;                                      (format "render('%s',%s);"
+;;                                              (shell-quote-argument (buffer-file-name))
+;;                                              "'all'"
+;;                                              ))))
+;;     (shell-command
+;;      (message
+;;       "Rscript -e \"withCallingHandlers({library(rmarkdown); library(pander); %s}, error = function(e) print(sys.calls()))\" &"
+;;       render-command
+;;       ))
+;;     ))
+;; (global-set-key (kbd "C-c <C-return>") 'rmarkdown-render)
 
 ;; python + purpose mode
 ;;(require 'window-purpose)

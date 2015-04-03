@@ -16,6 +16,7 @@
  '(package-selected-packages
    (quote
     (pepe-trueno window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
+ '(powerline-text-scale-factor 1.1)
  '(purpose-default-layout-file "~/.emacs.d/layouts/.purpose-layout")
  '(python-shell-interpreter "ipython3" t))
 (custom-set-faces
@@ -25,4 +26,5 @@
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:background "gray7"))))
  '(linum ((t (:background "#282828" :foreground "#fdf4c1"))))
- '(minimap-font-face ((t (:height 30 :family "DejaVu Sans Mono")))))
+ '(minimap-font-face ((t (:height 30 :family "DejaVu Sans Mono"))))
+ '(powerline-active1 ((t (:inherit mode-line :background "#b8bb26")))))

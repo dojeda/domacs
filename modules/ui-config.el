@@ -1,5 +1,11 @@
 ;; Load user interface settings
 
+
+
+;; font
+(set-default-font "Source Code Pro 13")
+
+
 ;; color theme
 ;;(load-theme 'zenburn t)
 (load-theme 'domacs-color t)
@@ -30,10 +36,11 @@
 ;;(setq sml/theme 'dark)
 ;;(sml/setup)
 ;; power-line settings
-;; (require 'powerline)
-;; (powerline-default-theme)
-(require 'main-line)
-(setq main-line-separator-style "rounded")
+(require 'powerline)
+(powerline-default-theme)
+(setq powerline-default-separator "zigzag")
+;;(require 'main-line)
+;;(setq main-line-separator-style "rounded")
 (defvar domacs/no-srgb-please t ;; <- put t to disable srgb in osx-tweaks
   "Please don't use the srgb option on OSX, because it breaks powerline and main-line")
 
@@ -145,5 +152,10 @@
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))
 (purpose-compile-user-configuration)
 (eval-after-load "window-purpose" '(diminish 'purpose-mode " ⓦ"))
+
+
+;; git-gutter-fringe. I finally decided to drop the linum / nlinum and
+;; put the fringe to good use
+(require 'git-gutter-fringe)
 
 (provide 'ui-config)
