@@ -251,10 +251,19 @@ save the pointer marker if tag is found"
   (flycheck-mode 1)
   (subword-mode 1) ;; move in CamelCase words
   )
-
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
 
+(defun domacs/send-python-file ()
+  (interactive)
+  (python-shell-send-file (buffer-file-name))
+  )
+(defun domacs/python-hook ()
+  (local-set-key [f5] 'goto-line)           ;; F5 is go to line
+  (local-set-key (kbd "C-c C-<return>") 'domacs/send-python-file)
+  (subword-mode 1) ;; move in CamelCase words
+  )
+(add-hook 'python-mode-hook 'domacs/python-hook)
 (add-hook 'python-mode-hook 'jedi:setup)
 
 (provide 'programming)

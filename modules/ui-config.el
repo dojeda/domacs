@@ -3,8 +3,8 @@
 
 
 ;; font
-(set-default-font "Source Code Pro 13")
-
+;;(set-default-font "Source Code Pro 13")
+(setq default-frame-alist '((font . "Source Code Pro 13")))
 
 ;; color theme
 ;;(load-theme 'zenburn t)
@@ -84,6 +84,22 @@
 (eval-after-load "auto-complete" '(diminish 'auto-complete-mode " Ⓐ"))
 ;;(eval-after-load "cc-mode" '(diminish 'c-mode " Ⓒ")) ;; does not work!
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
+;;(eval-after-load "python" '(diminish 'inferior-python-mode " ♘"))
+(eval-after-load "compile" '(diminish 'compilation-shell-minor-mode " ♞"))
+
+;; major modes cannot be dimished with diminish, we need to change the
+;; name in their respective hooks
+;; example: emacs-lisp:
+(add-hook 'emacs-lisp-mode-hook 
+          (lambda()
+            (setq mode-name " ∑")))
+;; (add-hook 'compilation-mode-hook
+;;           (lambda()
+;;             (setq mode-name " ★")))
+(add-hook 'inferior-python-mode-hook
+          (lambda()
+            (setq mode-name " (★π)")))
+
 
 ;; saveplace remembers your location in a file when saving files
 (require 'saveplace)
@@ -109,7 +125,7 @@
 (setq projectile-cache-file (expand-file-name  "projectile.cache" domacs/savefile-dir))
 (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" domacs/savefile-dir))
 (projectile-global-mode t)
-(eval-after-load "projectile" '(diminish 'projectile-mode " ☢"))
+(eval-after-load "projectile" '(diminish 'projectile-mode " ☣"))
 ;;(diminish "projectile-mode" "Ⓟ")
 ;;(diminish 'projectile-mode "Prjl")
 
@@ -157,5 +173,6 @@
 ;; git-gutter-fringe. I finally decided to drop the linum / nlinum and
 ;; put the fringe to good use
 (require 'git-gutter-fringe)
+(eval-after-load "git-gutter" '(diminish 'git-gutter-mode " Ⓖ"))
 
 (provide 'ui-config)
