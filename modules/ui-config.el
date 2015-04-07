@@ -175,4 +175,8 @@
 (require 'git-gutter-fringe)
 (eval-after-load "git-gutter" '(diminish 'git-gutter-mode " Ⓖ"))
 
+;; anzu
+(require 'anzu)
+(global-anzu-mode 1)
+
 (provide 'ui-config)

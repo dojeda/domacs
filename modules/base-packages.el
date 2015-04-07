@@ -48,6 +48,7 @@
     ;;idomenu       ;; TESTING: jumps to symbol
     expand-region ;; expand selection by semantic units (semantics as in the meaning not the mode, you silly)
     git-gutter-fringe ;; fringe with git information
+    anzu          ;; show number of matches when searching
     ) 
   "A list of packages installed at launch")
 

@@ -7,6 +7,7 @@
  '(custom-safe-themes
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" default)))
+ '(global-anzu-mode t)
  '(ispell-program-name "aspell")
  '(minimap-always-recenter t)
  '(minimap-display-semantic-overlays nil)
@@ -24,6 +25,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(anzu-mode-line ((t (:background "#b8bb26"))))
  '(hl-line ((t (:background "gray7"))))
  '(linum ((t (:background "#282828" :foreground "#fdf4c1"))))
  '(minimap-font-face ((t (:height 30 :family "DejaVu Sans Mono"))))
