@@ -1,0 +1,1 @@
+(t (0 0 164 47) (nil (0 0 164 36) (:purpose R :purpose-dedicated nil :width 0.55 :height 0.75 :edges (0.0 0.0 0.55 0.75)) (:purpose Rhelp :purpose-dedicated t :width 0.475 :height 0.75 :edges (0.55 0.0 1.025 0.75))) (:purpose Rshell :purpose-dedicated nil :width 1.025 :height 0.22916666666666666 :edges (0.0 0.75 1.025 0.9791666666666666)))

@@ -166,6 +166,9 @@
 (add-to-list 'purpose-user-mode-purposes '(c++-mode . cpp))
 (add-to-list 'purpose-user-mode-purposes '(c-header-mode . h))
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))
+(add-to-list 'purpose-user-mode-purposes '(inferior-ess-mode . Rshell))
+(add-to-list 'purpose-user-mode-purposes '(ess-help-mode . Rhelp))
+(add-to-list 'purpose-user-mode-purposes '(ess-mode . R))
 (purpose-compile-user-configuration)
 (eval-after-load "window-purpose" '(diminish 'purpose-mode " ⓦ"))
 
@@ -178,5 +181,8 @@
 ;; anzu
 (require 'anzu)
 (global-anzu-mode 1)
+(eval-after-load "anzu" '(diminish 'anzu-mode))
+
+(eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 
 (provide 'ui-config)
