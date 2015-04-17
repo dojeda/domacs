@@ -1,4 +1,4 @@
-;; Load package management 
+;; Load package management
 (require 'package)
 (require 'cl)
 
@@ -20,7 +20,7 @@
     projectile    ;; project management mode
     diminish      ;; avoid clutter in modeline
     ;;smart-mode-line ;; another mode line theme
-    powerline       ;; another mode line theme 
+    powerline       ;; another mode line theme
     main-line     ;; another mode line theme
     volatile-highlights ;; highlight some buffer modifications
     helm          ;; command narrowing on steroids
@@ -43,13 +43,13 @@
     jedi          ;; python completion tool
     ;;ack-and-a-half;; grep-like search for programmers
     matlab-mode   ;; matlab mode
-    window-purpose;; window configuration with purposes
+    window-purpose ;; window configuration with purposes
     ace-jump-mode ;; quick jumps
     ;;idomenu       ;; TESTING: jumps to symbol
     expand-region ;; expand selection by semantic units (semantics as in the meaning not the mode, you silly)
     git-gutter-fringe ;; fringe with git information
     anzu          ;; show number of matches when searching
-    ) 
+    )
   "A list of packages installed at launch")
 
 

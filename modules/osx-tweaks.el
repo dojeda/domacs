@@ -25,7 +25,7 @@
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
 ;; color is wrong for main-line or powerline
-(if domacs/no-srgb-please
+(if (and (boundp 'domacs/no-srgb-please) domacs/no-srgb-please)
     (setq ns-use-srgb-colorspace nil)
     ()
   )

@@ -19,15 +19,21 @@
     (pepe-trueno window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
  '(powerline-text-scale-factor 1.1)
  '(purpose-default-layout-file "~/.emacs.d/layouts/.purpose-layout")
- '(python-shell-interpreter "ipython3"))
+ '(python-shell-interpreter "ipython3" t)
+ '(whitespace-action nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(anzu-mode-line ((t (:background "#b8bb26"))))
+ '(font-latex-sectioning-5-face ((t (:foreground "yellow" :weight bold))))
  '(hl-line ((t (:background "gray7"))))
  '(linum ((t (:background "#282828" :foreground "#fdf4c1"))))
  '(minimap-font-face ((t (:height 30 :family "DejaVu Sans Mono"))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey30" :foreground "grey80" :box (:line-width -1 :color "grey40")))))
- '(powerline-active1 ((t (:inherit mode-line :background "#b8bb26")))))
+ '(powerline-active1 ((t (:inherit mode-line :background "#b8bb26"))))
+ '(whitespace-hspace ((t (:background "grey24" :foreground "dark cyan"))))
+ '(whitespace-line ((t (:underline (:color "RoyalBlue4" :style wave)))))
+ '(whitespace-newline ((t (:foreground "gray32" :weight normal))))
+ '(whitespace-space ((t (:foreground "gray32")))))
