@@ -2,11 +2,12 @@
 
 (normal-erase-is-backspace-mode t)
 
-
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+;; commented these four lines for emacs-mac version
+;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse    
-(setq scroll-step 1) ;; keyboard scroll one line at a time
+;;(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse    
+;;(setq scroll-step 1) ;; keyboard scroll one line at a time
+
 ;; (setq-default scroll-conservatively 1000) ;scroll 1 line at a time
 ;; (setq scroll-step 1)                      ;scroll 1 line at a time
 (setq font-lock-maximum-decoration t)

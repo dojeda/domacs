@@ -1,6 +1,6 @@
 ;; Load user interface settings
 
-
+(global-whitespace-mode t)
 
 ;; font
 ;;(set-default-font "Source Code Pro 13")
@@ -36,9 +36,9 @@
 ;;(setq sml/theme 'dark)
 ;;(sml/setup)
 ;; power-line settings
-(require 'powerline)
-(powerline-default-theme)
-(setq powerline-default-separator "zigzag")
+;;(require 'powerline)
+;;(powerline-default-theme)
+;;(setq powerline-default-separator "zigzag")
 ;;(require 'main-line)
 ;;(setq main-line-separator-style "rounded")
 (defvar domacs/no-srgb-please t ;; <- put t to disable srgb in osx-tweaks
