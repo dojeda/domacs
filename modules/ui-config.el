@@ -163,6 +163,7 @@
 (purpose-mode 1)
 (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
 (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
+(add-to-list 'purpose-user-mode-purposes '(rst-mode . ReST))
 (add-to-list 'purpose-user-mode-purposes '(c++-mode . cpp))
 (add-to-list 'purpose-user-mode-purposes '(c-header-mode . h))
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))

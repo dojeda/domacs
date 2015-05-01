@@ -212,6 +212,7 @@ save the pointer marker if tag is found"
 
 
 ;; R
+;;(ess-toggle-underscore nil)
 ;; (require 'poly-R)
 ;; (require 'poly-markdown)
 ;; (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
