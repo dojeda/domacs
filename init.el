@@ -33,6 +33,8 @@
 
 ;; Module 2: UI configuration
 (require 'ui-config)
+;;(require 'ocodo-kawaii-light-smt)
+(require 'ocodo-slim-svg-mode-line)
 
 ;; Module 3: OSX specific settings
 (when (eq system-type 'darwin)
