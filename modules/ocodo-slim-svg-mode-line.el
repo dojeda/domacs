@@ -2,6 +2,10 @@
 
 ;;; Commentary:
 
+;; The original author of this theme is ocodo. I've made some minor
+;; modifications, but you should check out the original at
+;; https://github.com/ocodo/.emacs.d
+
 ;; Work in progress, check commit history for variations.
 
 ;; Made with the svg-mode-line-themes toolkit from Sabof.
