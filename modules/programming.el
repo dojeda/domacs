@@ -58,7 +58,6 @@
         '(("\\<\\(true\\|false\\)\\>" .
            font-lock-keyword-face)))))
 
-
 ;; semantic
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
@@ -154,30 +153,30 @@
 (defvar domacs/semantic-tags-location-ring (make-ring 20))
 
 (defun domacs/semantic-goto-definition (point)
-  "Goto definition using semantic-ia-fast-jump   
+  "Goto definition using semantic-ia-fast-jump
 save the pointer marker if tag is found"
   (interactive "d")
   (condition-case err
-      (progn                            
-        (ring-insert domacs/semantic-tags-location-ring (point-marker))  
+      (progn
+        (ring-insert domacs/semantic-tags-location-ring (point-marker))
         (semantic-ia-fast-jump point)
         (recenter))
     (error
-     ;;if not found remove the tag saved in the ring  
+     ;;if not found remove the tag saved in the ring
      (set-marker (ring-remove domacs/semantic-tags-location-ring 0) nil nil)
      (signal (car err) (cdr err)))))
 
-(defun domacs/semantic-pop-tag-mark ()             
-  "popup the tag save by semantic-goto-definition"   
-  (interactive)                                                    
-  (if (ring-empty-p domacs/semantic-tags-location-ring)                   
-      (message "%s" "No more tags available")                      
-    (let* ((marker (ring-remove domacs/semantic-tags-location-ring 0))    
-              (buff (marker-buffer marker))                        
-                 (pos (marker-position marker)))                   
-      (if (not buff)                                               
-            (message "Buffer has been deleted")                    
-        (switch-to-buffer buff)                                    
+(defun domacs/semantic-pop-tag-mark ()
+  "popup the tag save by semantic-goto-definition"
+  (interactive)
+  (if (ring-empty-p domacs/semantic-tags-location-ring)
+      (message "%s" "No more tags available")
+    (let* ((marker (ring-remove domacs/semantic-tags-location-ring 0))
+              (buff (marker-buffer marker))
+                 (pos (marker-position marker)))
+      (if (not buff)
+            (message "Buffer has been deleted")
+        (switch-to-buffer buff)
         (goto-char pos)
         (recenter))
       (set-marker marker nil nil))))
@@ -212,24 +211,25 @@ save the pointer marker if tag is found"
 
 
 ;; R
-(require 'poly-R)
-(require 'poly-markdown)
-(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
-(defun rmarkdown-render ()
-  "run rmarkdown::render() on the current file and display results in buffer *Shell Command Output*"
-  (interactive)
-  (let ((render-command (read-string "Render command: "
-                                     (format "render('%s',%s);"
-                                             (shell-quote-argument (buffer-file-name))
-                                             "'all'"
-                                             ))))
-    (shell-command
-     (message
-      "Rscript -e \"withCallingHandlers({library(rmarkdown); library(pander); %s}, error = function(e) print(sys.calls()))\" &"
-      render-command
-      ))
-    ))
-(global-set-key (kbd "C-c <C-return>") 'rmarkdown-render)
+;;(ess-toggle-underscore nil)
+;; (require 'poly-R)
+;; (require 'poly-markdown)
+;; (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+;; (defun rmarkdown-render ()
+;;   "run rmarkdown::render() on the current file and display results in buffer *Shell Command Output*"
+;;   (interactive)
+;;   (let ((render-command (read-string "Render command: "
+;;                                      (format "render('%s',%s);"
+;;                                              (shell-quote-argument (buffer-file-name))
+;;                                              "'all'"
+;;                                              ))))
+;;     (shell-command
+;;      (message
+;;       "Rscript -e \"withCallingHandlers({library(rmarkdown); library(pander); %s}, error = function(e) print(sys.calls()))\" &"
+;;       render-command
+;;       ))
+;;     ))
+;; (global-set-key (kbd "C-c <C-return>") 'rmarkdown-render)
 
 ;; python + purpose mode
 ;;(require 'window-purpose)

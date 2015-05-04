@@ -1,6 +1,10 @@
 ;; Load user interface settings
 
+;; whitespce management
+(require 'whitespace)
 (global-whitespace-mode t)
+;;(global-whitespace-cleanup-mode t)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; font
 ;;(set-default-font "Source Code Pro 13")
@@ -162,6 +166,7 @@
 (purpose-mode 1)
 (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
 (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
+(add-to-list 'purpose-user-mode-purposes '(rst-mode . ReST))
 (add-to-list 'purpose-user-mode-purposes '(c++-mode . cpp))
 (add-to-list 'purpose-user-mode-purposes '(c-header-mode . h))
 (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))

@@ -50,6 +50,7 @@
     expand-region ;; expand selection by semantic units (semantics as in the meaning not the mode, you silly)
     git-gutter-fringe ;; fringe with git information
     anzu          ;; show number of matches when searching
+    svg-mode-line-themes ;; svg
     )
   "A list of packages installed at launch")
 
