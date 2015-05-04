@@ -77,16 +77,11 @@
 
 ;; diminish keeps the modeline tidy
 (require 'diminish)
-;;(diminish auto-complete-mode "Ⓐ")
-;;(diminish cc-mode "Ⓒ")
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Ⓨ"))
 (eval-after-load "flycheck" '(diminish 'flycheck-mode " Ⓕ"))
 (eval-after-load "auto-complete" '(diminish 'auto-complete-mode " Ⓐ"))
-;;(eval-after-load "cc-mode" '(diminish 'c-mode " Ⓒ")) ;; does not work!
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
-;;(eval-after-load "python" '(diminish 'inferior-python-mode " ♘"))
 (eval-after-load "compile" '(diminish 'compilation-shell-minor-mode " ♞"))
-
 ;; major modes cannot be dimished with diminish, we need to change the
 ;; name in their respective hooks
 ;; example: emacs-lisp:
@@ -99,6 +94,10 @@
 (add-hook 'inferior-python-mode-hook
           (lambda()
             (setq mode-name " (★π)")))
+
+;; ;; delight keeps the modeline tidy
+;; (require 'delight)
+;; (delight '((yas-minor-mode " YYY")))
 
 
 ;; saveplace remembers your location in a file when saving files

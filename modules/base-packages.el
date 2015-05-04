@@ -19,6 +19,7 @@
     nlinum        ;; line number package that uses the fringe
     projectile    ;; project management mode
     diminish      ;; avoid clutter in modeline
+    ;;delight       ;; avoid clutter in modeline
     ;;smart-mode-line ;; another mode line theme
     powerline       ;; another mode line theme
     main-line     ;; another mode line theme
