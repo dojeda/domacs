@@ -209,6 +209,13 @@ save the pointer marker if tag is found"
  python-shell-completion-string-code
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
+;; PDB command line
+(defun dojeda/pdb ()
+  "Run python debugger on current buffer."
+  (interactive)
+  (setq command (format "python3 -u -m pdb %s " (file-name-nondirectory buffer-file-name)))
+  (let ((command-with-args (read-string "Debug command: " command nil nil nil)))
+    (pdb command-with-args)))
 
 ;; R
 ;;(ess-toggle-underscore nil)
@@ -239,6 +246,7 @@ save the pointer marker if tag is found"
 (add-to-list 'load-path "/Users/david/apps/ESS/lisp")
 (load "ess-site")
 (add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
+(ess-toggle-underscore nil) ;; leave underscore key alone!
 (message "Finished loading ESS")
 
 ;; HOOKS

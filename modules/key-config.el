@@ -4,9 +4,12 @@
 ;; the old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; shift-arrow to move across buffers 
+;; shift-arrow to move across buffers
 (require 'windmove)
 (windmove-default-keybindings)
+
+;; ispell
+(global-set-key [f4] 'ispell-word)
 
 ;; f7 to comment
 (global-set-key [f7] 'comment-region)
