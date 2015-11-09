@@ -25,7 +25,8 @@
     main-line     ;; another mode line theme
     volatile-highlights ;; highlight some buffer modifications
     helm          ;; command narrowing on steroids
-    auctex        ;; latex
+    auctex        ;; latex support: auctex
+    auctex-latexmk;; latexmk with auctex
     org           ;; org-mode
     ido           ;; menu for changes around buffers and files
     flx           ;; fuzzy matching

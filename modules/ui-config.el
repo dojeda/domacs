@@ -28,6 +28,12 @@
 (setq inhibit-startup-screen t)
 
 ;; ;; nice scrolling (currently testing if I really want this)
+(setq scroll-margin 1
+      scroll-conservatively 0
+      scroll-up-aggressively 0.01
+      scroll-down-aggressively 0.01)
+(setq-default scroll-up-aggressively 0.01
+              scroll-down-aggressively 0.01)
 ;; (setq scroll-margin 0
 ;;       scroll-conservatively 100000
 ;;       scroll-preserve-screen-position 1)
@@ -89,7 +95,7 @@
 ;; major modes cannot be dimished with diminish, we need to change the
 ;; name in their respective hooks
 ;; example: emacs-lisp:
-(add-hook 'emacs-lisp-mode-hook 
+(add-hook 'emacs-lisp-mode-hook
           (lambda()
             (setq mode-name " ∑")))
 ;; (add-hook 'compilation-mode-hook

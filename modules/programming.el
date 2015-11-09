@@ -275,4 +275,10 @@ save the pointer marker if tag is found"
 (add-hook 'python-mode-hook 'domacs/python-hook)
 (add-hook 'python-mode-hook 'jedi:setup)
 
+;; Latex
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
+(setq auctex-latexmk-inherit-TeX-PDF-mode t)
+
+
 (provide 'programming)
