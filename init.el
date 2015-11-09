@@ -13,6 +13,8 @@
   "Personal files and customizations directory")
 (defvar domacs/savefile-dir (expand-file-name "savefile" domacs/base-dir)
   "Directory for automatic saves and history files.")
+(defvar domacs/extras-dir (expand-file-name "extras" domacs/base-dir)
+  "Directory for xxx.")
 
 (unless (file-exists-p domacs/savefile-dir)
   (make-directory domacs/savefile-dir))
@@ -27,6 +29,7 @@
 
 ;; Setup path to load modules
 (add-to-list 'load-path domacs/modules-dir)
+(add-to-list 'load-path domacs/extras-dir)
 
 ;; Module 1: packages
 (require 'base-packages)
@@ -44,5 +47,6 @@
 
 ;; Module 5: key configuration
 (require 'key-config)
+
 
 (message "Emacs is ready!")

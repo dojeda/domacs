@@ -37,4 +37,11 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; quick jump
+(require 'quick-jump)
+(global-set-key [f16] 'quick-jump-go-back)
+(global-set-key [f17] 'quick-jump-go-forward)
+(global-set-key [f18] 'quick-jump-clear-all-marker)
+(global-set-key [f19] 'quick-jump-push-marker)
+
 (provide 'key-config)

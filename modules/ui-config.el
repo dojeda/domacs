@@ -167,20 +167,20 @@
 (guide-key-mode 1)
 (eval-after-load "guide-key" '(diminish 'guide-key-mode))
 
-;; purpose-mode: automatic window configuration
-(require 'window-purpose)
-(purpose-mode 1)
-(add-to-list 'purpose-user-mode-purposes '(python-mode . py))
-(add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
-(add-to-list 'purpose-user-mode-purposes '(rst-mode . ReST))
-(add-to-list 'purpose-user-mode-purposes '(c++-mode . cpp))
-(add-to-list 'purpose-user-mode-purposes '(c-header-mode . h))
-(add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))
-(add-to-list 'purpose-user-mode-purposes '(inferior-ess-mode . Rshell))
-(add-to-list 'purpose-user-mode-purposes '(ess-help-mode . Rhelp))
-(add-to-list 'purpose-user-mode-purposes '(ess-mode . R))
-(purpose-compile-user-configuration)
-(eval-after-load "window-purpose" '(diminish 'purpose-mode " ⓦ"))
+;; ;; purpose-mode: automatic window configuration
+;; (require 'window-purpose)
+;; (purpose-mode 1)
+;; (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
+;; (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
+;; (add-to-list 'purpose-user-mode-purposes '(rst-mode . ReST))
+;; (add-to-list 'purpose-user-mode-purposes '(c++-mode . cpp))
+;; (add-to-list 'purpose-user-mode-purposes '(c-header-mode . h))
+;; (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation))
+;; (add-to-list 'purpose-user-mode-purposes '(inferior-ess-mode . Rshell))
+;; (add-to-list 'purpose-user-mode-purposes '(ess-help-mode . Rhelp))
+;; (add-to-list 'purpose-user-mode-purposes '(ess-mode . R))
+;; (purpose-compile-user-configuration)
+;; (eval-after-load "window-purpose" '(diminish 'purpose-mode " ⓦ"))
 
 
 ;; git-gutter-fringe. I finally decided to drop the linum / nlinum and
