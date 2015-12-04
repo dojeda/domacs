@@ -4,7 +4,7 @@
 (require 'whitespace)
 (global-whitespace-mode t)
 ;;(global-whitespace-cleanup-mode t)
-(add-hook 'before-save-hook 'whitespace-cleanup)
+;;(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; font
 ;;(set-default-font "Source Code Pro 13")
@@ -34,6 +34,7 @@
       scroll-down-aggressively 0.01)
 (setq-default scroll-up-aggressively 0.01
               scroll-down-aggressively 0.01)
+(scroll-bar-mode -1)
 ;; (setq scroll-margin 0
 ;;       scroll-conservatively 100000
 ;;       scroll-preserve-screen-position 1)
@@ -156,6 +157,7 @@
 (flx-ido-mode 1)
 (setq ido-use-faces nil)
 (ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 (ido-ubiquitous-mode 1)
 
 ;; guide-key

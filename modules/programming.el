@@ -1,7 +1,7 @@
 ;; programming-related configuration
 
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
-(setq-default tab-width 8)            ;; but maintain correct appearance [????]
+(setq-default tab-width 4)            ;; 
 (setq compilation-scroll-output t)    ;; the compilation output should scroll down automatically
 
 ;; test: C/C++ headers have a dedicated mode so that purpose-mode puts those buffers in a dedicated window
@@ -241,13 +241,13 @@ save the pointer marker if tag is found"
 ;; python + purpose mode
 ;;(require 'window-purpose)
 
-;; R + ESS
-(message "Loading ESS")
-(add-to-list 'load-path "/Users/david/apps/ESS/lisp")
-(load "ess-site")
-(add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
-(ess-toggle-underscore nil) ;; leave underscore key alone!
-(message "Finished loading ESS")
+;; ;; R + ESS
+;; (message "Loading ESS")
+;; (add-to-list 'load-path "/Users/david/apps/ESS/lisp")
+;; (load "ess-site")
+;; (add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
+;; (ess-toggle-underscore nil) ;; leave underscore key alone!
+;; (message "Finished loading ESS")
 
 ;; HOOKS
 (defun domacs/c-hook ()
