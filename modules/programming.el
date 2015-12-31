@@ -198,7 +198,7 @@ save the pointer marker if tag is found"
 
 ;; python
 (setq
- python-shell-interpreter "ipython3"
+ python-shell-interpreter "ipython"
  python-shell-interpreter-args "--pylab"
  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
@@ -207,7 +207,20 @@ save the pointer marker if tag is found"
  python-shell-completion-module-string-code
    "';'.join(module_completion('''%s'''))\n"
  python-shell-completion-string-code
-   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+ "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+(require 'jedi)
+(setq jedi:environment-root "jedi")  ; or any other name you like
+(setq jedi:environment-virtualenv
+      (append python-environment-virtualenv
+              '("--python" "/usr/bin/python3.5")))
+;;(setq jedi:server-command '("python3.5" "JEDI:SOURCE-DIR/jediepcserver.py"))
+;;(setq jedi:server-command '("/home/david/.emacs.d/.python-environments/jedi/bin/jediepcserver"))
+(jedi:install-server)
+
+(require 'jedi-direx)
+(eval-after-load "python"
+  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
+(add-hook 'jedi-mode-hook 'jedi-direx:setup)
 
 ;; PDB command line
 (defun dojeda/pdb ()
@@ -218,6 +231,9 @@ save the pointer marker if tag is found"
     (pdb command-with-args)))
 
 ;; R
+(require 'ess-site)
+(add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
+(ess-toggle-underscore nil) ;; leave underscore key alone!
 ;;(ess-toggle-underscore nil)
 ;; (require 'poly-R)
 ;; (require 'poly-markdown)

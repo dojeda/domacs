@@ -8,7 +8,7 @@
 
 ;; font
 ;;(set-default-font "Source Code Pro 13")
-(setq default-frame-alist '((font . "Source Code Pro 13")))
+;;(setq default-frame-alist '((font . "Source Code Pro 13")))
 
 ;; color theme
 ;;(load-theme 'zenburn t)
