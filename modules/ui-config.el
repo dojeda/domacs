@@ -197,4 +197,10 @@
 
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 
+;; ocodo: nice svg-modes
+(require 'ocodo-svg-modelines)
+(ocodo-svg-modelines-init)
+(smt/set-theme 'ocodo-mesh-grass-smt)
+
+
 (provide 'ui-config)
