@@ -279,17 +279,24 @@ save the pointer marker if tag is found"
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
 
+;;
+(add-hook 'python-mode-hook 'jedi:setup)
+
 (defun domacs/send-python-file ()
   (interactive)
   (python-shell-send-file (buffer-file-name))
   )
+(defun domacs/python-send-line ()
+  (interactive)
+  (python-shell-send-region (point-at-bol) (point-at-eol)))
 (defun domacs/python-hook ()
   (local-set-key [f5] 'goto-line)           ;; F5 is go to line
   (local-set-key (kbd "C-c C-<return>") 'domacs/send-python-file)
+  (local-set-key (kbd "C-<tab>") 'jedi:complete)
+  (local-set-key (kbd "C-<return>") 'domacs/python-send-line)
   (subword-mode 1) ;; move in CamelCase words
   )
 (add-hook 'python-mode-hook 'domacs/python-hook)
-(add-hook 'python-mode-hook 'jedi:setup)
 
 ;; Latex
 (require 'auctex-latexmk)

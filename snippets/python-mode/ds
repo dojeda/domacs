@@ -1,0 +1,35 @@
+# -*- mode: snippet -*-
+# name: Full docstring (numpy style)
+# key: ds
+# --
+"""${1:short description}
+
+${2:long description}
+
+Parameters
+----------
+param1: type
+   description
+
+Returns
+-------
+type
+    description
+
+Raises
+------
+type1
+    description
+
+Examples
+--------
+Examples should be written in doctest format, and should illustrate how
+to use the function.
+
+>>> print([i for i in example_generator(4)])
+[0, 1, 2, 3]
+
+Notes
+-----
+Notes, if needed
+"""
