@@ -284,7 +284,7 @@ save the pointer marker if tag is found"
 
 (defun domacs/send-python-file ()
   (interactive)
-  (python-shell-send-file (buffer-file-name))
+  (python-shell-send-file (buffer-file-name) '())
   )
 (defun domacs/python-send-line ()
   (interactive)
