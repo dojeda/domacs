@@ -2,3 +2,11 @@ elpa
 url
 savefile
 semanticdb
+session.*
+smex-items
+srecode-map.el
+tramp
+.python-environments
+auto-save-list
+request
+.mc-lists.el
