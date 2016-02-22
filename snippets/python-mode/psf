@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Print with .format
+# key: psf
+# --
+print('$0'.format())
