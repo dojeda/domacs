@@ -21,19 +21,20 @@
     diminish      ;; avoid clutter in modeline
     ;;delight       ;; avoid clutter in modeline
     ;;smart-mode-line ;; another mode line theme
-    powerline       ;; another mode line theme
-    main-line     ;; another mode line theme
+    ;;powerline       ;; another mode line theme
+    ;;main-line     ;; another mode line theme
     volatile-highlights ;; highlight some buffer modifications
     helm          ;; command narrowing on steroids
+    helm-projectile ;; helm and projectile integration
     auctex        ;; latex support: auctex
     auctex-latexmk;; latexmk with auctex
     org           ;; org-mode
-    ido           ;; menu for changes around buffers and files
-    flx           ;; fuzzy matching
-    flx-ido       ;; flx and ido
-    smex          ;; fuxxy auto completion for M-x
-    ido-vertical-mode ;; vertical ido
-    ido-ubiquitous  ;; ???
+    ;; ido           ;; menu for changes around buffers and files
+    ;; flx           ;; fuzzy matching
+    ;; flx-ido       ;; flx and ido
+    ;; smex          ;; fuxxy auto completion for M-x
+    ;; ido-vertical-mode ;; vertical ido
+    ;; ido-ubiquitous  ;; ???
     multiple-cursors ;; multiple cursors
     iedit         ;; modify multiple regions (useful for refactoring)
     auto-complete ;; auto complete
@@ -51,7 +52,7 @@
     expand-region ;; expand selection by semantic units (semantics as in the meaning not the mode, you silly)
     git-gutter-fringe ;; fringe with git information
     anzu          ;; show number of matches when searching
-    svg-mode-line-themes ;; svg
+    ;;svg-mode-line-themes ;; svg
     )
   "A list of packages installed at launch")
 

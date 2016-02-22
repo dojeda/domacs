@@ -2,9 +2,29 @@
 
 ;; whitespce management
 (require 'whitespace)
-(global-whitespace-mode t)
+;;(global-whitespace-mode t)
 ;;(global-whitespace-cleanup-mode t)
 ;;(add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; Fix whitespace in popups
+(defvar my-prev-whitespace-mode nil)
+(make-variable-buffer-local 'my-prev-whitespace-mode)
+
+(defadvice popup-draw (before my-turn-off-whitespace activate compile)
+  "Turn off whitespace mode before showing autocomplete box"
+  (if whitespace-mode
+      (progn
+        (setq my-prev-whitespace-mode t)
+        (whitespace-mode -1)
+        (setq my-prev-whitespace-mode t))))
+
+(defadvice popup-delete (after my-restore-whitespace activate compile)
+  "Restore previous whitespace mode when deleting autocomplete box"
+  (if my-prev-whitespace-mode
+      (progn
+        (whitespace-mode 1)
+        (setq my-prev-whitespace-mode nil))))
+
 
 ;; font
 ;;(set-default-font "Source Code Pro 13")
@@ -140,29 +160,68 @@
 ;;(diminish 'projectile-mode "Prjl")
 
 ;; helm
-;;(helm-mode) ;; not sure how this works yet: it uses another buffer to complete commands.
+(require 'helm)
+(require 'helm-config)
 
-;; ido
-(ido-mode t)
-(setq ido-enable-prefix nil          ;; match all string, not only the prefix
-      ido-enable-flex-matching t     ;; flexible matching: if there is no match, search containing characters
-      ido-create-new-buffer 'always  ;; create new buffer if no match is found
-      ido-use-filename-at-point nil  ;; do not try to guess using current point
-      ;;ido-max-window-height 10
-      ido-save-directory-list-file (expand-file-name "ido.last" domacs/savefile-dir)
-      ido-auto-merge-work-directories-length -1 ;; ???
-      ido-default-file-method 'selected-window ;; use same window to visit a file
-      ;; ido-ignore-extensions t
-      ido-file-extensions-order '(".org" ".c" ".cpp" ".c" ".h" ".txt"))
-(flx-ido-mode 1)
-(setq ido-use-faces nil)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
-(ido-ubiquitous-mode 1)
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+;; DOMACS: this is why I have to do this key configuration here and
+;; not in key-config.el (see comments above)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+;; (when (executable-find "curl")
+;;   (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t)
+
+(helm-mode 1)
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+(global-set-key (kbd "C-x b") 'helm-mini)
+
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+(helm-autoresize-mode t)
+
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+
+;; ;; ido
+;; (ido-mode t)
+;; (setq ido-enable-prefix nil          ;; match all string, not only the prefix
+;;       ido-enable-flex-matching t     ;; flexible matching: if there is no match, search containing characters
+;;       ido-create-new-buffer 'always  ;; create new buffer if no match is found
+;;       ido-use-filename-at-point nil  ;; do not try to guess using current point
+;;       ;;ido-max-window-height 10
+;;       ido-save-directory-list-file (expand-file-name "ido.last" domacs/savefile-dir)
+;;       ido-auto-merge-work-directories-length -1 ;; ???
+;;       ido-default-file-method 'selected-window ;; use same window to visit a file
+;;       ;; ido-ignore-extensions t
+;;       ido-file-extensions-order '(".org" ".c" ".cpp" ".c" ".h" ".txt"))
+;; (flx-ido-mode 1)
+;; (setq ido-use-faces nil)
+;; (ido-vertical-mode 1)
+;; (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+;; (ido-ubiquitous-mode 1)
 
 ;; guide-key
 (setq guide-key/guide-key-sequence '("C-x r" ;; rectangles
-                                     "C-x 4" ;; ? ido ?
+                                     ;;"C-x 4" ;; ? ido ?
+                                     "C-c h" ;; helm
                                      "C-x 5" ;; frames
                                      "C-c p" ;; projectile
                                      ))
@@ -197,10 +256,12 @@
 
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 
-;; ocodo: nice svg-modes
-(require 'ocodo-svg-modelines)
-(ocodo-svg-modelines-init)
-(smt/set-theme 'ocodo-mesh-grass-smt)
+;; ;; ocodo: nice svg-modes
+;; (require 'ocodo-svg-modelines)
+;; (ocodo-svg-modelines-init)
+;; (smt/set-theme 'ocodo-mesh-grass-smt)
+
+
 
 
 (provide 'ui-config)

@@ -9,7 +9,7 @@ ${2:long description}
 Parameters
 ----------
 param1: type
-   description
+    description
 
 Returns
 -------

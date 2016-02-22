@@ -209,18 +209,20 @@ save the pointer marker if tag is found"
  python-shell-completion-string-code
  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 (require 'jedi)
-(setq jedi:environment-root "jedi")  ; or any other name you like
-(setq jedi:environment-virtualenv
-      (append python-environment-virtualenv
-              '("--python" "/usr/bin/python3.5")))
+;; WORKS:
+;; (setq jedi:environment-root "jedi")  ; or any other name you like
+;; (setq jedi:environment-virtualenv
+;;       (append python-environment-virtualenv
+;;               '("--python" "/usr/bin/python3.5")))
+;; OLD:
 ;;(setq jedi:server-command '("python3.5" "JEDI:SOURCE-DIR/jediepcserver.py"))
 ;;(setq jedi:server-command '("/home/david/.emacs.d/.python-environments/jedi/bin/jediepcserver"))
 (jedi:install-server)
 
-(require 'jedi-direx)
-(eval-after-load "python"
-  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
-(add-hook 'jedi-mode-hook 'jedi-direx:setup)
+;; (require 'jedi-direx)
+;; (eval-after-load "python"
+;;   '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
+;; (add-hook 'jedi-mode-hook 'jedi-direx:setup)
 
 ;; PDB command line
 (defun dojeda/pdb ()
@@ -275,6 +277,7 @@ save the pointer marker if tag is found"
   (local-set-key (kbd "s-<down>") 'domacs/semantic-goto-definition) ;; super-down goes to tag definition
   (flycheck-mode 1)
   (subword-mode 1) ;; move in CamelCase words
+  (whitespace-mode 1)
   )
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
@@ -295,6 +298,7 @@ save the pointer marker if tag is found"
   (local-set-key (kbd "C-<tab>") 'jedi:complete)
   (local-set-key (kbd "C-<return>") 'domacs/python-send-line)
   (subword-mode 1) ;; move in CamelCase words
+  (whitespace-mode 1)
   )
 (add-hook 'python-mode-hook 'domacs/python-hook)
 

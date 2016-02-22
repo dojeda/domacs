@@ -6,7 +6,9 @@
  '(cppcm-makefile-name ".Makefile.cppcm")
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" default)))
+    ("a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" default)))
+ '(ediff-merge-split-window-function (quote split-window-vertically))
+ '(ediff-split-window-function (quote split-window-horizontally))
  '(global-anzu-mode t)
  '(ispell-program-name "aspell")
  '(json-reformat:indent-width 2)
@@ -36,5 +38,5 @@
  '(whitespace-hspace ((t (:background "grey24" :foreground "dark cyan"))))
  '(whitespace-indentation ((t (:foreground "firebrick"))))
  '(whitespace-line ((t (:underline (:color "RoyalBlue4" :style wave)))))
- '(whitespace-newline ((t (:foreground "gray32" :weight normal))))
- '(whitespace-space ((t (:foreground "gray32")))))
+ '(whitespace-newline ((t (:foreground "#282828" :weight normal))))
+ '(whitespace-space ((t (:foreground "#282828")))))
