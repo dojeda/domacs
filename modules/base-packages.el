@@ -11,7 +11,8 @@
 
 ;; Required packages
 (defvar domacs/required-packages
-  '(zenburn-theme ;; color theme
+  '(zenburn-theme         ;; color theme
+    color-theme-solarized ;; color theme
     magit         ;; great git package
     git-messenger ;; show commit message at point
     git-timemachine ;; browse git commits
@@ -54,6 +55,8 @@
     git-gutter-fringe ;; fringe with git information
     anzu          ;; show number of matches when searching
     ;;svg-mode-line-themes ;; svg
+    rainbow-mode  ;; #123456 text as color
+    json-mode     ;; json
     )
   "A list of packages installed at launch")
 

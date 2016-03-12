@@ -233,9 +233,10 @@ save the pointer marker if tag is found"
     (pdb command-with-args)))
 
 ;; R
-(require 'ess-site)
-(add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
-(ess-toggle-underscore nil) ;; leave underscore key alone!
+;; (require 'ess-site)
+;; (add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
+;; (ess-toggle-underscore nil) ;; leave underscore key alone!
+
 ;;(ess-toggle-underscore nil)
 ;; (require 'poly-R)
 ;; (require 'poly-markdown)

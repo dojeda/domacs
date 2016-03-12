@@ -32,6 +32,8 @@
 
 ;; color theme
 ;;(load-theme 'zenburn t)
+;; (if (eq system-type 'windows-nt)
+;;   (load-theme 'zenburn t))
 (load-theme 'domacs-color t)
 
 ;; no toolbar
@@ -155,7 +157,7 @@
 (setq projectile-cache-file (expand-file-name  "projectile.cache" domacs/savefile-dir))
 (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" domacs/savefile-dir))
 (projectile-global-mode t)
-(eval-after-load "projectile" '(diminish 'projectile-mode " ☣"))
+(eval-after-load "projectile" '(diminish 'projectile-mode " Ⓟ"))
 ;;(diminish "projectile-mode" "Ⓟ")
 ;;(diminish 'projectile-mode "Prjl")
 
