@@ -26,6 +26,7 @@
     volatile-highlights ;; highlight some buffer modifications
     helm          ;; command narrowing on steroids
     helm-projectile ;; helm and projectile integration
+    helm-swoop    ;; filter search and edit in places with helm
     auctex        ;; latex support: auctex
     auctex-latexmk;; latexmk with auctex
     org           ;; org-mode
