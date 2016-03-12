@@ -12,8 +12,8 @@
 (global-set-key [f4] 'ispell-word)
 
 ;; f7 to comment
-(global-set-key [f7] 'comment-region)
-(global-set-key (kbd "S-<f7>") 'uncomment-region)
+(global-set-key [f13] 'comment-region)
+(global-set-key (kbd "S-<f13>") 'uncomment-region)
 
 ;; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)

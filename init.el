@@ -41,6 +41,8 @@
 ;; Module 3: OSX specific settings
 (when (eq system-type 'darwin)
   (require 'osx-tweaks))
+(when (eq system-type 'windows-nt)
+  (require 'windows-tweaks))
 
 ;; Module 4: programming
 (require 'programming)
