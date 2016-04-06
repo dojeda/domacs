@@ -42,7 +42,8 @@
     auto-complete-clang ;; clang+auto complete
     flycheck      ;; on-the-fly syntax checker
     cpputils-cmake;; help auto-complete configure itself with cmake
-    guide-key     ;; help for complicated key bindings
+    ;;guide-key     ;; help for complicated key bindings
+    which-key     ;; better help and exploration of complicated key bindings
     cmake-mode    ;; cmake
     jedi          ;; python completion tool
     ;;ack-and-a-half;; grep-like search for programmers

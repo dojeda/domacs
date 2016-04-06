@@ -261,12 +261,13 @@ save the pointer marker if tag is found"
 ;;(require 'window-purpose)
 
 ;; ;; R + ESS
-;; (message "Loading ESS")
+(message "Loading ESS")
+(require 'ess-site)
 ;; (add-to-list 'load-path "/Users/david/apps/ESS/lisp")
 ;; (load "ess-site")
 ;; (add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
-;; (ess-toggle-underscore nil) ;; leave underscore key alone!
-;; (message "Finished loading ESS")
+(ess-toggle-underscore nil) ;; leave underscore key alone!
+(message "Finished loading ESS")
 
 ;; HOOKS
 (defun domacs/c-hook ()

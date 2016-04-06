@@ -221,14 +221,14 @@
 ;; (ido-ubiquitous-mode 1)
 
 ;; guide-key
-(setq guide-key/guide-key-sequence '("C-x r" ;; rectangles
-                                     ;;"C-x 4" ;; ? ido ?
-                                     "C-c h" ;; helm
-                                     "C-x 5" ;; frames
-                                     "C-c p" ;; projectile
-                                     ))
-(guide-key-mode 1)
-(eval-after-load "guide-key" '(diminish 'guide-key-mode))
+;; (setq guide-key/guide-key-sequence '("C-x r" ;; rectangles
+;;                                      ;;"C-x 4" ;; ? ido ?
+;;                                      "C-c h" ;; helm
+;;                                      "C-x 5" ;; frames
+;;                                      "C-c p" ;; projectile
+;;                                      ))
+;; (guide-key-mode 1)
+;; (eval-after-load "guide-key" '(diminish 'guide-key-mode))
 
 ;; ;; purpose-mode: automatic window configuration
 ;; (require 'window-purpose)
@@ -264,6 +264,8 @@
 ;; (smt/set-theme 'ocodo-mesh-grass-smt)
 
 
-
+(require 'which-key)
+(which-key-mode)
+(eval-after-load "which-key" '(diminish 'which-key-mode " ⓦ"))
 
 (provide 'ui-config)
