@@ -268,4 +268,8 @@
 (which-key-mode)
 (eval-after-load "which-key" '(diminish 'which-key-mode " ⓦ"))
 
+;; disable/enable weird emacs configuration
+(put 'narrow-to-region 'disabled nil)
+
+
 (provide 'ui-config)

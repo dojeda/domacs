@@ -47,6 +47,7 @@
     which-key     ;; better help and exploration of complicated key bindings
     cmake-mode    ;; cmake
     jedi          ;; python completion tool
+    elpy          ;; python IDE-like tools
     ;;ack-and-a-half;; grep-like search for programmers
     matlab-mode   ;; matlab mode
     window-purpose ;; window configuration with purposes

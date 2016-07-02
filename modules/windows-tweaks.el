@@ -3,4 +3,6 @@
 (set-face-attribute 'default nil
                     :height 110)
 
+(setq visible-bell 1)
+
 (provide 'windows-tweaks)

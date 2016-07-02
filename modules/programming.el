@@ -284,7 +284,14 @@ save the pointer marker if tag is found"
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
 
-;;
+;; Python
+(require 'elpy)
+(define-key elpy-mode-map (kbd "<C-down>") nil) ;; disable elpy's backward block
+(define-key elpy-mode-map (kbd "<C-up>") nil)   ;; disable elpy's forward block
+(define-key elpy-mode-map (kbd "<M-down>") nil) ;; disable elpy's move region or line
+(define-key elpy-mode-map (kbd "<M-up>") nil)   ;; disable elpy's move region or line
+
+
 (add-hook 'python-mode-hook 'jedi:setup)
 
 (defun domacs/send-python-file ()
