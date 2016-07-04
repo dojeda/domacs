@@ -11,9 +11,13 @@
 ;; ispell
 (global-set-key [f4] 'ispell-word)
 
-;; f7 to comment
+;; comment
 (global-set-key [f13] 'comment-region)
 (global-set-key (kbd "S-<f13>") 'uncomment-region)
+(when (string= system-name "malboro-vbox")
+  (progn
+    (global-set-key [f6] 'comment-region)
+    (global-set-key (kbd "S-<f6>") 'uncomment-region)))
 
 ;; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)
