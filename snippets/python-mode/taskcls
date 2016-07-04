@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: Luigi Task class
+# key: taskcls
+# group: object oriented
+# --
+class ${1:class}(${2:parent}):
+    # Task parameters
+$0
+    def requires(self):
+        pass
+
+    def output(self):
+        pass
+
+    def run(self):
+        pass

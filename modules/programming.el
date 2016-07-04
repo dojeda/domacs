@@ -285,12 +285,13 @@ save the pointer marker if tag is found"
 ;;(require 'window-purpose)
 
 ;; ;; R + ESS
-;; (message "Loading ESS")
+(message "Loading ESS")
+(require 'ess-site)
 ;; (add-to-list 'load-path "/Users/david/apps/ESS/lisp")
 ;; (load "ess-site")
 ;; (add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
-;; (ess-toggle-underscore nil) ;; leave underscore key alone!
-;; (message "Finished loading ESS")
+(ess-toggle-underscore nil) ;; leave underscore key alone!
+(message "Finished loading ESS")
 
 ;; HOOKS
 (defun domacs/c-hook ()
@@ -307,7 +308,14 @@ save the pointer marker if tag is found"
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
 
-;;
+;; Python
+(require 'elpy)
+(define-key elpy-mode-map (kbd "<C-down>") nil) ;; disable elpy's backward block
+(define-key elpy-mode-map (kbd "<C-up>") nil)   ;; disable elpy's forward block
+(define-key elpy-mode-map (kbd "<M-down>") nil) ;; disable elpy's move region or line
+(define-key elpy-mode-map (kbd "<M-up>") nil)   ;; disable elpy's move region or line
+
+
 (add-hook 'python-mode-hook 'jedi:setup)
 
 (defun domacs/send-python-file ()
