@@ -1,8 +1,32 @@
 ;; programming-related configuration
 
+;; Indentation
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 4)            ;; 
 (setq compilation-scroll-output t)    ;; the compilation output should scroll down automatically
+
+;; In Mensia, Indentation rules are different, let's create a class
+;; for these directories (instead of using .dir-locals.el)
+(dir-locals-set-class-variables 'mensia-style-dir
+                                '((nil . ((indent-tabs-mode . t)
+                                          (fill-column . 120)))))
+(defvar mensia-directories
+  '("/home/david/devel/openvibe/"
+    "/home/david/devel/openvibe/externals/mensia"))
+
+(defun configure-mensia-directories (list)
+  "Configure all mensia directories to follow the same dir-locals configuration"
+  (when list
+    (progn
+      (message (format "Configuring mensia dir-locals class in directory %s" (car list)))
+      (dir-locals-set-directory-class (car list) 'mensia-style-dir)
+      )
+    (configure-mensia-directories (cdr list))))
+;; (dir-locals-set-directory-class
+;;  "/home/david/devel/openvibe/" 'mensia-style-dir)
+;; (dir-locals-set-directory-class
+;;  "/home/david/devel/openvibe/external/mensia/" 'mensia-style-dir)
+(configure-mensia-directories mensia-directories)
 
 ;; test: C/C++ headers have a dedicated mode so that purpose-mode puts those buffers in a dedicated window
 (define-derived-mode c-header-mode

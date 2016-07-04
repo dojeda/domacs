@@ -50,7 +50,7 @@
 (setq inhibit-startup-screen t)
 
 ;; ;; nice scrolling (currently testing if I really want this)
-(setq scroll-margin 1
+(setq scroll-margin 4 ; number of lines shown around scrolling, for example when isearch finds a hit
       scroll-conservatively 0
       scroll-up-aggressively 0.01
       scroll-down-aggressively 0.01)
