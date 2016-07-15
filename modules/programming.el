@@ -220,28 +220,21 @@ save the pointer marker if tag is found"
 ;; (defalias 'ack-find-file 'ack-and-a-half-find-file)
 ;; (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
-;; python
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args "--pylab"
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
-   "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
-   "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
- "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-(require 'jedi)
-;; WORKS:
-;; (setq jedi:environment-root "jedi")  ; or any other name you like
-;; (setq jedi:environment-virtualenv
-;;       (append python-environment-virtualenv
-;;               '("--python" "/usr/bin/python3.5")))
-;; OLD:
-;;(setq jedi:server-command '("python3.5" "JEDI:SOURCE-DIR/jediepcserver.py"))
-;;(setq jedi:server-command '("/home/david/.emacs.d/.python-environments/jedi/bin/jediepcserver"))
-(jedi:install-server)
+;; old python (jedi)
+;; (setq
+;;  python-shell-interpreter "ipython"
+;;  python-shell-interpreter-args "--pylab"
+;;  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+;;  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+;;  python-shell-completion-setup-code
+;;    "from IPython.core.completerlib import module_completion"
+;;  python-shell-completion-module-string-code
+;;    "';'.join(module_completion('''%s'''))\n"
+;;  python-shell-completion-string-code
+;;  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+;; (require 'jedi)
+;; (jedi:install-server)
+
 
 ;; (require 'jedi-direx)
 ;; (eval-after-load "python"
@@ -255,31 +248,6 @@ save the pointer marker if tag is found"
   (setq command (format "python3 -u -m pdb %s " (file-name-nondirectory buffer-file-name)))
   (let ((command-with-args (read-string "Debug command: " command nil nil nil)))
     (pdb command-with-args)))
-
-;; R
-;; (require 'ess-site)
-;; (add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
-;; (ess-toggle-underscore nil) ;; leave underscore key alone!
-
-;;(ess-toggle-underscore nil)
-;; (require 'poly-R)
-;; (require 'poly-markdown)
-;; (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
-;; (defun rmarkdown-render ()
-;;   "run rmarkdown::render() on the current file and display results in buffer *Shell Command Output*"
-;;   (interactive)
-;;   (let ((render-command (read-string "Render command: "
-;;                                      (format "render('%s',%s);"
-;;                                              (shell-quote-argument (buffer-file-name))
-;;                                              "'all'"
-;;                                              ))))
-;;     (shell-command
-;;      (message
-;;       "Rscript -e \"withCallingHandlers({library(rmarkdown); library(pander); %s}, error = function(e) print(sys.calls()))\" &"
-;;       render-command
-;;       ))
-;;     ))
-;; (global-set-key (kbd "C-c <C-return>") 'rmarkdown-render)
 
 ;; python + purpose mode
 ;;(require 'window-purpose)
@@ -314,9 +282,8 @@ save the pointer marker if tag is found"
 (define-key elpy-mode-map (kbd "<C-up>") nil)   ;; disable elpy's forward block
 (define-key elpy-mode-map (kbd "<M-down>") nil) ;; disable elpy's move region or line
 (define-key elpy-mode-map (kbd "<M-up>") nil)   ;; disable elpy's move region or line
+(elpy-enable)
 
-
-(add-hook 'python-mode-hook 'jedi:setup)
 
 (defun domacs/send-python-file ()
   (interactive)
@@ -328,7 +295,8 @@ save the pointer marker if tag is found"
 (defun domacs/python-hook ()
   (local-set-key [f5] 'goto-line)           ;; F5 is go to line
   (local-set-key (kbd "C-c C-<return>") 'domacs/send-python-file)
-  (local-set-key (kbd "C-<tab>") 'jedi:complete)
+  ;;(local-set-key (kbd "C-<tab>") 'jedi:complete)
+  (local-set-key (kbd "C-<tab>") 'elpy-company-backend)
   (local-set-key (kbd "C-<return>") 'domacs/python-send-line)
   (subword-mode 1) ;; move in CamelCase words
   (whitespace-mode 1)

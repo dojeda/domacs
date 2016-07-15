@@ -25,6 +25,27 @@
         (whitespace-mode 1)
         (setq my-prev-whitespace-mode nil))))
 
+;; Fix Company mode whitespace in popups
+(defvar domacs/company-prev-whitespace-mode nil)
+(make-variable-buffer-local 'domacs/company-prev-whitespace-mode)
+(defun pre-popup-draw ()
+  "Turn off whitespace mode before showing company complete box through elpy-company-backend"
+  (if whitespace-mode
+      (progn
+        (setq domacs/company-prev-whitespace-mode t)
+        (whitespace-mode -1)
+        (setq domacs/company-prev-whitespace-mode t))))
+;;  (message "PRE"))
+
+(defun post-popup-draw ()
+  "Restore previous whitespace mode after showing company complete box through elpy-company-backend"
+  (if domacs/company-prev-whitespace-mode
+      (progn
+        (whitespace-mode 1)
+        (setq domacs/company-prev-whitespace-mode nil))))
+(advice-add 'company-pseudo-tooltip-unhide :before #'pre-popup-draw)
+(advice-add 'company-pseudo-tooltip-hide :after #'post-popup-draw)
+
 
 ;; font
 ;;(set-default-font "Source Code Pro 13")
@@ -271,5 +292,15 @@
 ;; disable/enable weird emacs configuration
 (put 'narrow-to-region 'disabled nil)
 
+;; Company colors
+(require 'color)
+
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
 (provide 'ui-config)

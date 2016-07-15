@@ -12,6 +12,9 @@
     ("708df3cbb25425ccbf077a6e6f014dc3588faba968c90b74097d11177b711ad1" "452fa61750cde79a4ba1a5c40bc3759274f46f449fd7c655a08742a0ff3d2e2e" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" default)))
  '(ediff-merge-split-window-function (quote split-window-vertically))
  '(ediff-split-window-function (quote split-window-horizontally))
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
  '(fci-rule-color "#383838")
  '(global-anzu-mode t)
  '(ispell-program-name "aspell")
@@ -29,7 +32,6 @@
     (window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
  '(powerline-text-scale-factor 1.1)
  '(purpose-default-layout-file "~/.emacs.d/layouts/.purpose-layout")
- '(python-shell-interpreter "ipython3")
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote
