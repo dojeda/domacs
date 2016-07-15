@@ -232,8 +232,8 @@ save the pointer marker if tag is found"
 ;;    "';'.join(module_completion('''%s'''))\n"
 ;;  python-shell-completion-string-code
 ;;  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-;; (require 'jedi)
-;; (jedi:install-server)
+(require 'jedi)
+(jedi:install-server)
 
 
 ;; (require 'jedi-direx)
@@ -295,8 +295,8 @@ save the pointer marker if tag is found"
 (defun domacs/python-hook ()
   (local-set-key [f5] 'goto-line)           ;; F5 is go to line
   (local-set-key (kbd "C-c C-<return>") 'domacs/send-python-file)
-  ;;(local-set-key (kbd "C-<tab>") 'jedi:complete)
-  (local-set-key (kbd "C-<tab>") 'elpy-company-backend)
+  (local-set-key (kbd "C-<tab>") 'jedi:complete)
+  ;;(local-set-key (kbd "C-<tab>") 'elpy-company-backend)
   (local-set-key (kbd "C-<return>") 'domacs/python-send-line)
   (subword-mode 1) ;; move in CamelCase words
   (whitespace-mode 1)

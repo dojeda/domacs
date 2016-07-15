@@ -15,6 +15,7 @@
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
+ '(elpy-rpc-backend "rope")
  '(fci-rule-color "#383838")
  '(global-anzu-mode t)
  '(ispell-program-name "aspell")
@@ -62,6 +63,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(anzu-mode-line ((t (:background "#b8bb26"))))
+ '(company-scrollbar-bg ((t (:background "#191919"))))
+ '(company-scrollbar-fg ((t (:background "#0c0c0c"))))
+ '(company-tooltip ((t (:inherit default :background "#050505"))))
+ '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
  '(font-latex-sectioning-5-face ((t (:foreground "yellow" :weight bold))))
  '(hl-line ((t (:background "gray7"))))
  '(linum ((t (:background "#282828" :foreground "#fdf4c1"))))
