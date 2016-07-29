@@ -282,6 +282,8 @@ save the pointer marker if tag is found"
 (define-key elpy-mode-map (kbd "<C-up>") nil)   ;; disable elpy's forward block
 (define-key elpy-mode-map (kbd "<M-down>") nil) ;; disable elpy's move region or line
 (define-key elpy-mode-map (kbd "<M-up>") nil)   ;; disable elpy's move region or line
+(define-key elpy-mode-map (kbd "<M-left>") nil) ;; disable elpy's move indent left
+(define-key elpy-mode-map (kbd "<M-right>") nil)   ;; disable elpy's move indent right
 (elpy-enable)
 
 
@@ -298,6 +300,8 @@ save the pointer marker if tag is found"
   (local-set-key (kbd "C-<tab>") 'jedi:complete)
   ;;(local-set-key (kbd "C-<tab>") 'elpy-company-backend)
   (local-set-key (kbd "C-<return>") 'domacs/python-send-line)
+  (local-set-key (kbd "s-<up>") 'pop-tag-mark)
+  (local-set-key (kbd "s-<down>") 'elpy-goto-definition)
   (subword-mode 1) ;; move in CamelCase words
   (whitespace-mode 1)
   )
@@ -308,5 +312,7 @@ save the pointer marker if tag is found"
 (auctex-latexmk-setup)
 (setq auctex-latexmk-inherit-TeX-PDF-mode t)
 
+;; misc
+(add-to-list 'auto-mode-alist '("\\.rc\\'" . conf-mode))
 
 (provide 'programming)
