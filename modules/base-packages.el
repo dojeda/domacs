@@ -17,7 +17,7 @@
     git-messenger ;; show commit message at point
     git-timemachine ;; browse git commits
     yasnippet     ;; snippets
-    nlinum        ;; line number package that uses the fringe
+    ;;nlinum        ;; line number package that uses the fringe
     projectile    ;; project management mode
     diminish      ;; avoid clutter in modeline
     ;;delight       ;; avoid clutter in modeline
@@ -25,6 +25,7 @@
     ;;powerline       ;; another mode line theme
     ;;main-line     ;; another mode line theme
     volatile-highlights ;; highlight some buffer modifications
+    highlight     ;; highlighy symbols at point
     helm          ;; command narrowing on steroids
     helm-projectile ;; helm and projectile integration
     helm-swoop    ;; filter search and edit in places with helm
