@@ -20,6 +20,7 @@
  '(global-anzu-mode t)
  '(ispell-program-name "aspell")
  '(json-reformat:indent-width 2)
+ '(magit-display-buffer-function (quote magit-display-buffer-same-window-except-diff-v1))
  '(minimap-always-recenter t)
  '(minimap-display-semantic-overlays nil)
  '(minimap-recenter-type (quote relative))

@@ -220,6 +220,9 @@ save the pointer marker if tag is found"
 ;; (defalias 'ack-find-file 'ack-and-a-half-find-file)
 ;; (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
+(setq python-shell-interpreter "ipython"
+  python-shell-interpreter-args "--simple-prompt")
+
 ;; old python (jedi)
 ;; (setq
 ;;  python-shell-interpreter "ipython"
