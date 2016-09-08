@@ -49,4 +49,7 @@
 ;; (global-set-key [f18] 'quick-jump-clear-all-marker)
 ;; (global-set-key [f19] 'quick-jump-push-marker)
 
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
 (provide 'key-config)

@@ -15,7 +15,7 @@
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
- '(elpy-rpc-backend "rope")
+ '(elpy-rpc-backend "jedi")
  '(fci-rule-color "#383838")
  '(global-anzu-mode t)
  '(ispell-program-name "aspell")

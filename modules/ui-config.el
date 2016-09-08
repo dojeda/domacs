@@ -28,21 +28,30 @@
 ;; Fix Company mode whitespace in popups
 (defvar domacs/company-prev-whitespace-mode nil)
 (make-variable-buffer-local 'domacs/company-prev-whitespace-mode)
+(make-variable-buffer-local 'domacs/company-prev-fci-mode)
 (defun pre-popup-draw ()
   "Turn off whitespace mode before showing company complete box through elpy-company-backend"
-  (if whitespace-mode
-      (progn
-        (setq domacs/company-prev-whitespace-mode t)
-        (whitespace-mode -1)
-        (setq domacs/company-prev-whitespace-mode t))))
-;;  (message "PRE"))
+  (progn
+    (if whitespace-mode
+        (progn
+          (setq domacs/company-prev-whitespace-mode t)
+          (whitespace-mode -1)))
+    (if fci-mode
+        (progn
+          (setq domacs/company-prev-fci-mode t)
+          (fci-mode -1)))))
 
 (defun post-popup-draw ()
   "Restore previous whitespace mode after showing company complete box through elpy-company-backend"
-  (if domacs/company-prev-whitespace-mode
-      (progn
-        (whitespace-mode 1)
-        (setq domacs/company-prev-whitespace-mode nil))))
+  (progn
+    (if domacs/company-prev-whitespace-mode
+        (progn
+          (whitespace-mode 1)
+          (setq domacs/company-prev-whitespace-mode nil)))
+    (if domacs/company-prev-fci-mode
+        (progn
+          (fci-mode 1)
+          (setq domacs/company-prev-fci-mode nil)))))
 (advice-add 'company-pseudo-tooltip-unhide :before #'pre-popup-draw)
 (advice-add 'company-pseudo-tooltip-hide :after #'post-popup-draw)
 
@@ -50,6 +59,10 @@
 ;; font
 ;;(set-default-font "Source Code Pro 13")
 ;;(setq default-frame-alist '((font . "Source Code Pro 13")))
+(set-face-attribute 'mode-line nil  :height 80)
+;; (let ((bg (face-attribute 'default :background)))
+;;   (set-face-attribute 'header-line nil  :height 120 :background bg))
+
 
 ;; color theme
 ;;(load-theme 'zenburn t)

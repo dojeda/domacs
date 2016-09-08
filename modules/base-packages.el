@@ -60,6 +60,7 @@
     ;;svg-mode-line-themes ;; svg
     rainbow-mode  ;; #123456 text as color
     json-mode     ;; json
+    ess           ;; R
     )
   "A list of packages installed at launch")
 
