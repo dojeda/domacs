@@ -61,6 +61,9 @@
     rainbow-mode  ;; #123456 text as color
     json-mode     ;; json
     ess           ;; R
+    stickyfunc-enhance ;; better stickyfunc on multiline declarations
+    rtags         ;; currently evaluating this one: clang help in C++
+    fill-column-indicator ;; show indicator in column 80
     )
   "A list of packages installed at launch")
 
