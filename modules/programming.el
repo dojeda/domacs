@@ -11,8 +11,7 @@
                                 '((nil . ((indent-tabs-mode . t)
                                           (fill-column . 120)))))
 (defvar mensia-directories
-  '("/home/david/devel/openvibe/"
-    "/home/david/devel/openvibe/externals/mensia"))
+  '("~/devel/neurort/"))
 
 (defun configure-mensia-directories (list)
   "Configure all mensia directories to follow the same dir-locals configuration"
@@ -117,14 +116,14 @@
   ;; call semantic-add-system-include for all items in cppcm-include-dirs
   (dolist (myvar cppcm-include-dirs)
     (semantic-add-system-include (replace-regexp-in-string "-I" "" myvar))))
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (if (derived-mode-p 'c-mode 'c++-mode)
-                (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
-                              (string-match "^/usr/src/linux/include/.*" buffer-file-name)
-                              (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
-                    (domacs/cppcm-hook)
-                  ))))
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (if (derived-mode-p 'c-mode 'c++-mode)
+;;                 (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
+;;                               (string-match "^/usr/src/linux/include/.*" buffer-file-name)
+;;                               (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
+;;                     (domacs/cppcm-hook)
+;;                   ))))
 ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
 ;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
@@ -332,6 +331,7 @@ save the pointer marker if tag is found"
   (set-face-attribute 'header-line nil  :height 110)
   (setq-default fill-column 80)
   (fci-mode 1) ;; does not play well with company-mode, but a defadvice might fix it
+  (git-gutter-mode 1)
   )
 (add-hook 'prog-mode-hook 'domacs/programming-hook)
 
