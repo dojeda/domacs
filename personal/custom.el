@@ -15,7 +15,7 @@
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
- '(elpy-rpc-backend "rope")
+ '(elpy-rpc-backend "jedi")
  '(fci-rule-color "#383838")
  '(global-anzu-mode t)
  '(ispell-program-name "aspell")
@@ -64,6 +64,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#272727" :foreground "#fdf4c1" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 128 :width normal :foundry "PfEd" :family "Inconsolata"))))
  '(anzu-mode-line ((t (:background "#b8bb26"))))
  '(company-scrollbar-bg ((t (:background "#191919"))))
  '(company-scrollbar-fg ((t (:background "#0c0c0c"))))
@@ -71,12 +72,20 @@
  '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
  '(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
  '(font-latex-sectioning-5-face ((t (:foreground "yellow" :weight bold))))
+ '(git-gutter:added ((t (:inherit default :foreground "#4daf4a" :weight bold))))
+ '(git-gutter:deleted ((t (:foreground "#e41a1c" :weight bold))))
+ '(git-gutter:modified ((t (:inherit default :foreground "#ff7f00" :weight bold))))
+ '(git-gutter:separator ((t (:inherit default :foreground "#377eb8" :weight bold))))
+ '(git-gutter:unchanged ((t (:background "#984ea3"))))
+ '(helm-candidate-number ((t (:background "chocolate3" :foreground "black"))))
+ '(helm-match ((t (:foreground "tomato"))))
+ '(helm-selection ((t (:background "dark olive green" :distant-foreground "black"))))
  '(hl-line ((t (:background "gray7"))))
  '(linum ((t (:background "#282828" :foreground "#fdf4c1"))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey30" :foreground "grey80" :box (:line-width -1 :color "grey40")))))
  '(powerline-active1 ((t (:inherit mode-line :background "#b8bb26"))))
  '(whitespace-hspace ((t (:background "grey24" :foreground "dark cyan"))))
- '(whitespace-indentation ((t (:foreground "firebrick"))))
+ '(whitespace-indentation ((t (:foreground "#383838"))))
  '(whitespace-line ((t (:underline (:color "RoyalBlue4" :style wave)))))
  '(whitespace-newline ((t (:foreground "#282828" :weight normal))))
- '(whitespace-space ((t (:foreground "#282828")))))
+ '(whitespace-space ((t (:foreground "#383838")))))

@@ -28,28 +28,41 @@
 ;; Fix Company mode whitespace in popups
 (defvar domacs/company-prev-whitespace-mode nil)
 (make-variable-buffer-local 'domacs/company-prev-whitespace-mode)
+(make-variable-buffer-local 'domacs/company-prev-fci-mode)
 (defun pre-popup-draw ()
   "Turn off whitespace mode before showing company complete box through elpy-company-backend"
-  (if whitespace-mode
-      (progn
-        (setq domacs/company-prev-whitespace-mode t)
-        (whitespace-mode -1)
-        (setq domacs/company-prev-whitespace-mode t))))
-;;  (message "PRE"))
+  (progn
+    (if whitespace-mode
+        (progn
+          (setq domacs/company-prev-whitespace-mode t)
+          (whitespace-mode -1)))
+    (if fci-mode
+        (progn
+          (setq domacs/company-prev-fci-mode t)
+          (fci-mode -1)))))
 
 (defun post-popup-draw ()
   "Restore previous whitespace mode after showing company complete box through elpy-company-backend"
-  (if domacs/company-prev-whitespace-mode
-      (progn
-        (whitespace-mode 1)
-        (setq domacs/company-prev-whitespace-mode nil))))
+  (progn
+    (if domacs/company-prev-whitespace-mode
+        (progn
+          (whitespace-mode 1)
+          (setq domacs/company-prev-whitespace-mode nil)))
+    (if domacs/company-prev-fci-mode
+        (progn
+          (fci-mode 1)
+          (setq domacs/company-prev-fci-mode nil)))))
 (advice-add 'company-pseudo-tooltip-unhide :before #'pre-popup-draw)
 (advice-add 'company-pseudo-tooltip-hide :after #'post-popup-draw)
 
 
 ;; font
-;;(set-default-font "Source Code Pro 13")
-;;(setq default-frame-alist '((font . "Source Code Pro 13")))
+;; (set-default-font "DejaVu Sans Mono 12")
+;; (setq default-frame-alist '((font . "DejaVu Sans Mono 12")))
+;;(set-face-attribute 'mode-line nil  :height 80)
+;; (let ((bg (face-attribute 'default :background)))
+;;   (set-face-attribute 'header-line nil  :height 120 :background bg))
+
 
 ;; color theme
 ;;(load-theme 'zenburn t)
@@ -131,23 +144,24 @@
 
 ;; diminish keeps the modeline tidy
 (require 'diminish)
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Ⓨ"))
-(eval-after-load "flycheck" '(diminish 'flycheck-mode " Ⓕ"))
-(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " Ⓐ"))
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Y"))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode " F"))
+(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " ac"))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
-(eval-after-load "compile" '(diminish 'compilation-shell-minor-mode " ♞"))
-;; major modes cannot be dimished with diminish, we need to change the
+;;(eval-after-load "compile" '(diminish 'compilation-shell-minor-mode " ♞"))
+
+;; major modes cannot be diminished with diminish, we need to change the
 ;; name in their respective hooks
 ;; example: emacs-lisp:
 (add-hook 'emacs-lisp-mode-hook
-          (lambda()
-            (setq mode-name " ∑")))
+           (lambda()
+             (setq mode-name " EL")))
 ;; (add-hook 'compilation-mode-hook
 ;;           (lambda()
 ;;             (setq mode-name " ★")))
 (add-hook 'inferior-python-mode-hook
           (lambda()
-            (setq mode-name " (★π)")))
+            (setq mode-name " Py")))
 
 ;; ;; delight keeps the modeline tidy
 ;; (require 'delight)
@@ -178,7 +192,7 @@
 (setq projectile-cache-file (expand-file-name  "projectile.cache" domacs/savefile-dir))
 (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" domacs/savefile-dir))
 (projectile-global-mode t)
-(eval-after-load "projectile" '(diminish 'projectile-mode " Ⓟ"))
+(eval-after-load "projectile" '(diminish 'projectile-mode " P"))
 ;;(diminish "projectile-mode" "Ⓟ")
 ;;(diminish 'projectile-mode "Prjl")
 
@@ -270,7 +284,7 @@
 ;; git-gutter-fringe. I finally decided to drop the linum / nlinum and
 ;; put the fringe to good use
 (require 'git-gutter-fringe)
-(eval-after-load "git-gutter" '(diminish 'git-gutter-mode " Ⓖ"))
+(eval-after-load "git-gutter" '(diminish 'git-gutter-mode " G"))
 
 ;; anzu
 (require 'anzu)
@@ -287,7 +301,7 @@
 
 (require 'which-key)
 (which-key-mode)
-(eval-after-load "which-key" '(diminish 'which-key-mode " ⓦ"))
+(eval-after-load "which-key" '(diminish 'which-key-mode " W"))
 
 ;; disable/enable weird emacs configuration
 (put 'narrow-to-region 'disabled nil)

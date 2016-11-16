@@ -12,12 +12,13 @@
 (global-set-key [f4] 'ispell-word)
 
 ;; comment
-(global-set-key [f13] 'comment-region)
-(global-set-key (kbd "S-<f13>") 'uncomment-region)
-(when (string= system-name "malboro-vbox")
-  (progn
-    (global-set-key [f6] 'comment-region)
-    (global-set-key (kbd "S-<f6>") 'uncomment-region)))
+;; (global-set-key [f13] 'comment-region)
+;; (global-set-key (kbd "S-<f13>") 'uncomment-region)
+;; (when (string= system-name "malboro-vbox")
+  ;; (progn
+(global-set-key [f7] 'comment-region)
+(global-set-key (kbd "S-<f7>") 'uncomment-region)
+;; ))
 
 ;; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)
@@ -48,5 +49,8 @@
 ;; (global-set-key [f17] 'quick-jump-go-forward)
 ;; (global-set-key [f18] 'quick-jump-clear-all-marker)
 ;; (global-set-key [f19] 'quick-jump-push-marker)
+
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 (provide 'key-config)

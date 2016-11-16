@@ -11,8 +11,7 @@
                                 '((nil . ((indent-tabs-mode . t)
                                           (fill-column . 120)))))
 (defvar mensia-directories
-  '("/home/david/devel/openvibe/"
-    "/home/david/devel/openvibe/externals/mensia"))
+  '("~/devel/neurort/"))
 
 (defun configure-mensia-directories (list)
   "Configure all mensia directories to follow the same dir-locals configuration"
@@ -96,6 +95,7 @@
 (add-to-list 'semantic-default-submodes 'global-semantic-show-parser-state-mode)
 (require 'semantic/ia)
 (semantic-mode 1)
+(require 'stickyfunc-enhance)
 
 ;; use semantic as backend of auto-complete
 (defun domacs/add-semantic-to-auto-complete ()
@@ -116,14 +116,14 @@
   ;; call semantic-add-system-include for all items in cppcm-include-dirs
   (dolist (myvar cppcm-include-dirs)
     (semantic-add-system-include (replace-regexp-in-string "-I" "" myvar))))
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (if (derived-mode-p 'c-mode 'c++-mode)
-                (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
-                              (string-match "^/usr/src/linux/include/.*" buffer-file-name)
-                              (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
-                    (domacs/cppcm-hook)
-                  ))))
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (if (derived-mode-p 'c-mode 'c++-mode)
+;;                 (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
+;;                               (string-match "^/usr/src/linux/include/.*" buffer-file-name)
+;;                               (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
+;;                     (domacs/cppcm-hook)
+;;                   ))))
 ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
 ;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
@@ -220,8 +220,9 @@ save the pointer marker if tag is found"
 ;; (defalias 'ack-find-file 'ack-and-a-half-find-file)
 ;; (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
-(setq python-shell-interpreter "ipython"
-  python-shell-interpreter-args "--simple-prompt")
+(setq python-shell-interpreter "ipython3"
+      python-shell-interpreter-args "--simple-prompt"
+      elpy-rpc-python-command "python3")
 
 ;; old python (jedi)
 ;; (setq
@@ -256,13 +257,22 @@ save the pointer marker if tag is found"
 ;;(require 'window-purpose)
 
 ;; ;; R + ESS
-(message "Loading ESS")
-(require 'ess-site)
-;; (add-to-list 'load-path "/Users/david/apps/ESS/lisp")
-;; (load "ess-site")
-;; (add-hook 'ess-mode-hook (lambda () (setq ess-arg-function-offset nil)))
-(ess-toggle-underscore nil) ;; leave underscore key alone!
-(message "Finished loading ESS")
+;; (message "Loading ESS")
+;; (require 'ess-site)
+;; (ess-toggle-underscore nil) ;; leave underscore key alone!
+;; (message "Finished loading ESS")
+
+;;rtags
+(require 'rtags)
+(require 'company-rtags)
+
+(setq rtags-completions-enabled t)
+(eval-after-load 'company
+  '(add-to-list
+    'company-backends 'company-rtags))
+(setq rtags-autostart-diagnostics t)
+(rtags-enable-standard-keybindings)
+(setq rtags-use-helm t)
 
 ;; HOOKS
 (defun domacs/c-hook ()
@@ -275,6 +285,7 @@ save the pointer marker if tag is found"
   (flycheck-mode 1)
   (subword-mode 1) ;; move in CamelCase words
   (whitespace-mode 1)
+  (setq flycheck-gcc-language-standard "c++11")
   )
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
@@ -314,6 +325,15 @@ save the pointer marker if tag is found"
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 (setq auctex-latexmk-inherit-TeX-PDF-mode t)
+
+;; common hook for all programming modes
+(defun domacs/programming-hook ()
+  (set-face-attribute 'header-line nil  :height 110)
+  (setq-default fill-column 80)
+  (fci-mode 1) ;; does not play well with company-mode, but a defadvice might fix it
+  (git-gutter-mode 1)
+  )
+(add-hook 'prog-mode-hook 'domacs/programming-hook)
 
 ;; misc
 (add-to-list 'auto-mode-alist '("\\.rc\\'" . conf-mode))
