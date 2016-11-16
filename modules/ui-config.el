@@ -57,9 +57,9 @@
 
 
 ;; font
-;;(set-default-font "Source Code Pro 13")
-;;(setq default-frame-alist '((font . "Source Code Pro 13")))
-(set-face-attribute 'mode-line nil  :height 80)
+;; (set-default-font "DejaVu Sans Mono 12")
+;; (setq default-frame-alist '((font . "DejaVu Sans Mono 12")))
+;;(set-face-attribute 'mode-line nil  :height 80)
 ;; (let ((bg (face-attribute 'default :background)))
 ;;   (set-face-attribute 'header-line nil  :height 120 :background bg))
 
@@ -144,23 +144,24 @@
 
 ;; diminish keeps the modeline tidy
 (require 'diminish)
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Ⓨ"))
-(eval-after-load "flycheck" '(diminish 'flycheck-mode " Ⓕ"))
-(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " Ⓐ"))
+(eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Y"))
+(eval-after-load "flycheck" '(diminish 'flycheck-mode " F"))
+(eval-after-load "auto-complete" '(diminish 'auto-complete-mode " ac"))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode))
-(eval-after-load "compile" '(diminish 'compilation-shell-minor-mode " ♞"))
-;; major modes cannot be dimished with diminish, we need to change the
+;;(eval-after-load "compile" '(diminish 'compilation-shell-minor-mode " ♞"))
+
+;; major modes cannot be diminished with diminish, we need to change the
 ;; name in their respective hooks
 ;; example: emacs-lisp:
 (add-hook 'emacs-lisp-mode-hook
-          (lambda()
-            (setq mode-name " ∑")))
+           (lambda()
+             (setq mode-name " EL")))
 ;; (add-hook 'compilation-mode-hook
 ;;           (lambda()
 ;;             (setq mode-name " ★")))
 (add-hook 'inferior-python-mode-hook
           (lambda()
-            (setq mode-name " (★π)")))
+            (setq mode-name " Py")))
 
 ;; ;; delight keeps the modeline tidy
 ;; (require 'delight)
@@ -191,7 +192,7 @@
 (setq projectile-cache-file (expand-file-name  "projectile.cache" domacs/savefile-dir))
 (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" domacs/savefile-dir))
 (projectile-global-mode t)
-(eval-after-load "projectile" '(diminish 'projectile-mode " Ⓟ"))
+(eval-after-load "projectile" '(diminish 'projectile-mode " P"))
 ;;(diminish "projectile-mode" "Ⓟ")
 ;;(diminish 'projectile-mode "Prjl")
 
@@ -283,7 +284,7 @@
 ;; git-gutter-fringe. I finally decided to drop the linum / nlinum and
 ;; put the fringe to good use
 (require 'git-gutter-fringe)
-(eval-after-load "git-gutter" '(diminish 'git-gutter-mode " Ⓖ"))
+(eval-after-load "git-gutter" '(diminish 'git-gutter-mode " G"))
 
 ;; anzu
 (require 'anzu)
@@ -300,7 +301,7 @@
 
 (require 'which-key)
 (which-key-mode)
-(eval-after-load "which-key" '(diminish 'which-key-mode " ⓦ"))
+(eval-after-load "which-key" '(diminish 'which-key-mode " W"))
 
 ;; disable/enable weird emacs configuration
 (put 'narrow-to-region 'disabled nil)
