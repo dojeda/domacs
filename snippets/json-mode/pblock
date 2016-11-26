@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: ProcessingBlock
+# key: pblock
+# --
+{"ProcessingBlock": {
+    "Comment" : [
+        "${1:comment}"
+    ],
+    "Name": "${2:name}",
+    "Interpreter": "${3:interpreter}",
+    "Selection" : "\$\{all\}",
+    "Inputs": {
+    },
+    "Outputs": {
+    },
+    "Parameters": {
+    }
+}}

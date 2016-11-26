@@ -1,4 +1,4 @@
-(message "Initializing emacs")
+(message "Initializing domacs")
 
 ;; This configuration needs at least 24.1
 (when (version< emacs-version "24.1")
@@ -32,6 +32,7 @@
 (add-to-list 'load-path domacs/extras-dir)
 
 ;; Module 1: packages
+(package-initialize)
 (require 'base-packages)
 
 ;; Module 2: UI configuration

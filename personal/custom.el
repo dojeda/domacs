@@ -64,7 +64,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#272727" :foreground "#fdf4c1" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 128 :width normal :foundry "PfEd" :family "Inconsolata"))))
+ '(default ((t (:inherit nil :stipple nil :background "#272727" :foreground "#fdf4c1" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 128 :width normal :foundry "DAMA" :family "Ubuntu Mono"))))
  '(anzu-mode-line ((t (:background "#b8bb26"))))
  '(company-scrollbar-bg ((t (:background "#191919"))))
  '(company-scrollbar-fg ((t (:background "#0c0c0c"))))
