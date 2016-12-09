@@ -65,6 +65,7 @@
     rtags         ;; currently evaluating this one: clang help in C++
     fill-column-indicator ;; show indicator in column 80
     markdown-mode ;; Markdown
+    paradox       ;; a better interface for the package manager
     )
   "A list of packages installed at launch")
 
