@@ -66,6 +66,8 @@
     fill-column-indicator ;; show indicator in column 80
     markdown-mode ;; Markdown
     paradox       ;; a better interface for the package manager
+    docker        ;; docker image manipulation
+    dockerfile-mode ;; Dockerfile mode
     )
   "A list of packages installed at launch")
 
