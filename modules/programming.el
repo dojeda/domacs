@@ -11,7 +11,7 @@
                                 '((nil . ((indent-tabs-mode . t)
                                           (fill-column . 120)))))
 (defvar mensia-directories
-  '("~/devel/neurort/"))
+  '("~/devel/neurort/" "~/devel/certivibe"))
 
 (defun configure-mensia-directories (list)
   "Configure all mensia directories to follow the same dir-locals configuration"
