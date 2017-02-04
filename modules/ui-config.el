@@ -317,4 +317,8 @@
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
+;; TEST: confluence
+(require 'confluence)
+(setq confluence-url "https://jira.mensiatech.com/confluence/rpc/xmlrpc")
+
 (provide 'ui-config)

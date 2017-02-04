@@ -11,7 +11,7 @@
                                 '((nil . ((indent-tabs-mode . t)
                                           (fill-column . 120)))))
 (defvar mensia-directories
-  '("~/devel/neurort/"))
+  '("~/devel/neurort/" "~/devel/certivibe"))
 
 (defun configure-mensia-directories (list)
   "Configure all mensia directories to follow the same dir-locals configuration"
@@ -83,7 +83,7 @@
 ;; semantic
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
+;;(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 ;;(add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode)
@@ -318,6 +318,7 @@ save the pointer marker if tag is found"
   (local-set-key (kbd "s-<down>") 'elpy-goto-definition)
   (subword-mode 1) ;; move in CamelCase words
   (whitespace-mode 1)
+  ;;(semantic-idle-summary-mode nil)
   )
 (add-hook 'python-mode-hook 'domacs/python-hook)
 
