@@ -47,7 +47,7 @@
 (defun domacs/ac-config ()
   (message "Running domacs auto-complete config")
   (setq ac-clang-flags
-        (append '("-std=c++11") (mapcar (lambda (item)(concat "-I" item))
+        (mapcar (lambda (item)(concat "-I" item))
                                         (split-string
                                          "
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1
@@ -57,7 +57,7 @@
   /usr/include
   /usr/local/include
 "
-                                         ))))
+                                         )))
   ;; the following lines are verbatim from auto-complete-config (the default configuration ac-config-default)
   (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
@@ -65,7 +65,6 @@
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
   (add-hook 'css-mode-hook 'ac-css-mode-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-  (setq flycheck-clang-language-standard "c++11")
   (global-auto-complete-mode t)
   ;; add a key for completion
   (define-key ac-mode-map [(meta return)] 'ac-complete-clang)
@@ -236,8 +235,8 @@ save the pointer marker if tag is found"
 ;;    "';'.join(module_completion('''%s'''))\n"
 ;;  python-shell-completion-string-code
 ;;  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-(require 'jedi)
-(jedi:install-server)
+;;(require 'jedi)
+;;(jedi:install-server)
 
 
 ;; (require 'jedi-direx)
@@ -284,11 +283,12 @@ save the pointer marker if tag is found"
   (local-set-key (kbd "s-<down>") 'domacs/semantic-goto-definition) ;; super-down goes to tag definition
   (flycheck-mode 1)
   (subword-mode 1) ;; move in CamelCase words
-  (whitespace-mode 1)
-  (setq flycheck-gcc-language-standard "c++11")
-  )
+  (whitespace-mode 1))
+(defun domacs/c++-hook ()
+  (setq flycheck-clang-language-standard "c++14"))
 (add-hook 'c-mode-hook 'domacs/c-hook)
 (add-hook 'c++-mode-hook 'domacs/c-hook)
+(add-hook 'c++-mode-hook 'domacs/c++-hook)
 
 ;; Python
 (require 'elpy)
@@ -311,8 +311,8 @@ save the pointer marker if tag is found"
 (defun domacs/python-hook ()
   (local-set-key [f5] 'goto-line)           ;; F5 is go to line
   (local-set-key (kbd "C-c C-<return>") 'domacs/send-python-file)
-  (local-set-key (kbd "C-<tab>") 'jedi:complete)
-  ;;(local-set-key (kbd "C-<tab>") 'elpy-company-backend)
+  ;;(local-set-key (kbd "C-<tab>") 'jedi:complete)
+  (local-set-key (kbd "C-<tab>") 'elpy-company-backend)
   (local-set-key (kbd "C-<return>") 'domacs/python-send-line)
   (local-set-key (kbd "s-<up>") 'pop-tag-mark)
   (local-set-key (kbd "s-<down>") 'elpy-goto-definition)
