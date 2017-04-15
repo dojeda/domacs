@@ -31,7 +31,7 @@
  '(org-image-actual-width 500)
  '(package-selected-packages
    (quote
-    (confluence plantuml-mode docker restclient yaml-mode paradox dockerfile-mode window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
+    (annotate mode-icons-mode chess tabbar mode-icons csv-mode confluence plantuml-mode docker restclient yaml-mode paradox dockerfile-mode window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
  '(paradox-github-token t)
  '(plantuml-jar-path "/home/david/apps/plantuml/plantuml.jar")
  '(powerline-text-scale-factor 1.1)
@@ -86,6 +86,7 @@
  '(linum ((t (:background "#282828" :foreground "#fdf4c1"))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey30" :foreground "grey80" :box (:line-width -1 :color "grey40")))))
  '(powerline-active1 ((t (:inherit mode-line :background "#b8bb26"))))
+ '(whitespace-empty ((t nil)))
  '(whitespace-hspace ((t (:background "grey24" :foreground "dark cyan"))))
  '(whitespace-indentation ((t (:foreground "#383838"))))
  '(whitespace-line ((t (:underline (:color "RoyalBlue4" :style wave)))))

@@ -321,4 +321,10 @@
 ;; (require 'confluence)
 ;; (setq confluence-url "https://jira.mensiatech.com/confluence/rpc/xmlrpc")
 
+;; mode-icon
+(require 'mode-icons)
+;;(setq mode-icons-grayscale-transform nil)
+;;(setq mode-icons-change-mode-name nil)
+(mode-icons-mode t)
+
 (provide 'ui-config)

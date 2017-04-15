@@ -43,7 +43,7 @@
     auto-complete ;; auto complete
     auto-complete-clang ;; clang+auto complete
     flycheck      ;; on-the-fly syntax checker
-    cpputils-cmake;; help auto-complete configure itself with cmake
+    ;;cpputils-cmake;; help auto-complete configure itself with cmake
     ;;guide-key     ;; help for complicated key bindings
     which-key     ;; better help and exploration of complicated key bindings
     cmake-mode    ;; cmake
@@ -51,7 +51,7 @@
     elpy          ;; python IDE-like tools
     ;;ack-and-a-half;; grep-like search for programmers
     matlab-mode   ;; matlab mode
-    window-purpose ;; window configuration with purposes
+    ;; window-purpose ;; window configuration with purposes
     ace-jump-mode ;; quick jumps
     ;;idomenu       ;; TESTING: jumps to symbol
     expand-region ;; expand selection by semantic units (semantics as in the meaning not the mode, you silly)
@@ -68,6 +68,7 @@
     paradox       ;; a better interface for the package manager
     docker        ;; docker image manipulation
     dockerfile-mode ;; Dockerfile mode
+    mode-icons    ;; like diminish, but with image icons
     )
   "A list of packages installed at launch")
 
