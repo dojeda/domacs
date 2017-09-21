@@ -69,6 +69,7 @@
     docker        ;; docker image manipulation
     dockerfile-mode ;; Dockerfile mode
     mode-icons    ;; like diminish, but with image icons
+    yaml-mode     ;; YAML 
     )
   "A list of packages installed at launch")
 

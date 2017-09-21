@@ -31,7 +31,7 @@
  '(org-image-actual-width 500)
  '(package-selected-packages
    (quote
-    (annotate mode-icons-mode chess tabbar mode-icons csv-mode confluence plantuml-mode docker restclient yaml-mode paradox dockerfile-mode window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
+    (company-rtags annotate mode-icons-mode chess tabbar mode-icons csv-mode confluence plantuml-mode docker restclient yaml-mode paradox dockerfile-mode window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
  '(paradox-github-token t)
  '(plantuml-jar-path "/home/david/apps/plantuml/plantuml.jar")
  '(powerline-text-scale-factor 1.1)
