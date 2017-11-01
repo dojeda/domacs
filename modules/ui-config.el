@@ -182,6 +182,20 @@
 ;; highlight the current line
 (global-hl-line-mode +1)
 
+;; highlight indentation
+;; (highlight-indentation-mode t)
+;; (set-face-background 'highlight-indentation-face "#4d4d4d")
+;; (set-face-background 'highlight-indentation-current-column-face "#695e54")
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(highlight-indent-guides-mode t)
+(setq highlight-indent-guides-auto-enabled nil)
+(setq highlight-indent-guides-method 'character)
+
+(set-face-background 'highlight-indent-guides-odd-face "#695e54")
+(set-face-background 'highlight-indent-guides-even-face "#4d4d4d")
+(set-face-foreground 'highlight-indent-guides-character-face "#695e54")
+
+
 ;; show modifications
 (require 'volatile-highlights)
 (volatile-highlights-mode t)

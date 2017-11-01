@@ -31,12 +31,13 @@
  '(org-image-actual-width 500)
  '(package-selected-packages
    (quote
-    (company-rtags annotate mode-icons-mode chess tabbar mode-icons csv-mode confluence plantuml-mode docker restclient yaml-mode paradox dockerfile-mode window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
+    (highlight-indent-guides company-rtags annotate mode-icons-mode chess tabbar mode-icons csv-mode confluence plantuml-mode docker restclient yaml-mode paradox dockerfile-mode window-purpose zenburn-theme yasnippet volatile-highlights smex smart-mode-line projectile polymode nlinum multiple-cursors minimap matlab-mode markdown-mode magit jedi iedit ido-vertical-mode ido-ubiquitous helm guide-key git-messenger flycheck flx-ido diminish cpputils-cmake cmake-mode auto-complete-clang auctex ack-and-a-half)))
  '(paradox-github-token t)
  '(plantuml-jar-path "/home/david/apps/plantuml/plantuml.jar")
  '(powerline-text-scale-factor 1.1)
  '(purpose-default-layout-file "~/.emacs.d/layouts/.purpose-layout")
  '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(tramp-syntax (quote default) nil (tramp))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote
