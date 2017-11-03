@@ -110,26 +110,26 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;; cpputils
-;; (add-to-list 'load-path "~/apps/cpputils-cmake" )
-(require 'cpputils-cmake)
-;;(setq cppcm-debug t)
-(defun domacs/cppcm-hook ()
-  (message "cppcm-hook of %s" buffer-file-name)
-  (cppcm-reload-all)
-  ;; call semantic-add-system-include for all items in cppcm-include-dirs
-  (dolist (myvar cppcm-include-dirs)
-    (semantic-add-system-include (replace-regexp-in-string "-I" "" myvar))))
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (if (derived-mode-p 'c-mode 'c++-mode)
-;;                 (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
-;;                               (string-match "^/usr/src/linux/include/.*" buffer-file-name)
-;;                               (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
-;;                     (domacs/cppcm-hook)
-;;                   ))))
-;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
-;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
+;; ;; cpputils
+;; ;; (add-to-list 'load-path "~/apps/cpputils-cmake" )
+;; (require 'cpputils-cmake)
+;; ;;(setq cppcm-debug t)
+;; (defun domacs/cppcm-hook ()
+;;   (message "cppcm-hook of %s" buffer-file-name)
+;;   (cppcm-reload-all)
+;;   ;; call semantic-add-system-include for all items in cppcm-include-dirs
+;;   (dolist (myvar cppcm-include-dirs)
+;;     (semantic-add-system-include (replace-regexp-in-string "-I" "" myvar))))
+;; ;; (add-hook 'c-mode-common-hook
+;; ;;           (lambda ()
+;; ;;             (if (derived-mode-p 'c-mode 'c++-mode)
+;; ;;                 (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
+;; ;;                               (string-match "^/usr/src/linux/include/.*" buffer-file-name)
+;; ;;                               (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
+;; ;;                     (domacs/cppcm-hook)
+;; ;;                   ))))
+;; ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
+;; ;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
 ;; A function to switch easily between C/C++ source and its header
 (defvar c++-default-header-ext "h")
@@ -304,6 +304,11 @@ save the pointer marker if tag is found"
 (define-key elpy-mode-map (kbd "<M-left>") nil) ;; disable elpy's move indent left
 (define-key elpy-mode-map (kbd "<M-right>") nil)   ;; disable elpy's move indent right
 (elpy-enable)
+
+;; pylint
+(autoload 'pylint "pylint")
+(add-hook 'python-mode-hook 'pylint-add-menu-items)
+(add-hook 'python-mode-hook 'pylint-add-key-bindings)
 
 
 (defun domacs/send-python-file ()

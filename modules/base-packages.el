@@ -63,6 +63,7 @@
     ess           ;; R
     stickyfunc-enhance ;; better stickyfunc on multiline declarations
     rtags         ;; currently evaluating this one: clang help in C++
+    company-rtags ;; rtags backend for completion engine
     fill-column-indicator ;; show indicator in column 80
     markdown-mode ;; Markdown
     paradox       ;; a better interface for the package manager
@@ -71,6 +72,8 @@
     mode-icons    ;; like diminish, but with image icons
     yaml-mode     ;; YAML
     smartparens   ;; Smart parens. I finally caved in.
+    highlight-indent-guides ;; indentation lines
+    pylint        ;; Python linter
     )
   "A list of packages installed at launch")
 
