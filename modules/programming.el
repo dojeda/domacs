@@ -1,5 +1,10 @@
 ;; programming-related configuration
 
+;; Smart parens
+(require 'smartparens)
+(show-smartparens-global-mode t)
+(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+
 ;; Indentation
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 4)            ;; 
