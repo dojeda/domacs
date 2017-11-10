@@ -71,6 +71,8 @@
     mode-icons    ;; like diminish, but with image icons
     yaml-mode     ;; YAML
     smartparens   ;; Smart parens. I finally caved in.
+    bind-key      ;; Easier bind key configuration [todo: completely switch to this]
+    free-keys     ;; List what keys are free for a given prefix
     )
   "A list of packages installed at launch")
 

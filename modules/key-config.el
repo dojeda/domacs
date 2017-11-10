@@ -53,4 +53,15 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
+
+;; bindings using bind-key
+(require 'bind-key)
+(bind-keys
+ :map smartparens-mode-map
+ ("C-` <right>" . sp-forward-slurp-sexp)
+ ("C-` S-<right>" . sp-forward-barf-sexp)
+ ("C-` <left>"  . sp-backward-slurp-sexp)
+ ("C-` S-<left>"  . sp-backward-barf-sexp)
+ )
+
 (provide 'key-config)

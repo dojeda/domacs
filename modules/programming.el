@@ -3,7 +3,7 @@
 ;; Smart parens
 (require 'smartparens)
 (show-smartparens-global-mode t)
-(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+(add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
 
 ;; Indentation
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
