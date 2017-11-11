@@ -110,7 +110,6 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-<<<<<<< Updated upstream
 ;; ;; cpputils
 ;; ;; (add-to-list 'load-path "~/apps/cpputils-cmake" )
 ;; (require 'cpputils-cmake)
@@ -131,28 +130,6 @@
 ;; ;;                   ))))
 ;; ;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
 ;; ;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
-=======
-;; cpputils
-;; (add-to-list 'load-path "~/apps/cpputils-cmake" )
-;;(require 'cpputils-cmake)
-;;(setq cppcm-debug t)
-(defun domacs/cppcm-hook ()
-  (message "cppcm-hook of %s" buffer-file-name)
-  (cppcm-reload-all)
-  ;; call semantic-add-system-include for all items in cppcm-include-dirs
-  (dolist (myvar cppcm-include-dirs)
-    (semantic-add-system-include (replace-regexp-in-string "-I" "" myvar))))
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (if (derived-mode-p 'c-mode 'c++-mode)
-;;                 (if  (not (or (string-match "^/usr/local/include/.*" buffer-file-name)
-;;                               (string-match "^/usr/src/linux/include/.*" buffer-file-name)
-;;                               (string-match "^/usr/local/Cellar/.*" buffer-file-name)))
-;;                     (domacs/cppcm-hook)
-;;                   ))))
-;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
-;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
->>>>>>> Stashed changes
 
 ;; A function to switch easily between C/C++ source and its header
 (defvar c++-default-header-ext "h")
