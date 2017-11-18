@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pylint disable warning
+# key: pdis
+# --
+# pylint: disable=$0
