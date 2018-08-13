@@ -17,6 +17,7 @@
     git-messenger ;; show commit message at point
     git-timemachine ;; browse git commits
     yasnippet     ;; snippets
+    yasnippet-snippets ;; now snippets are packaged here
     ;;nlinum        ;; line number package that uses the fringe
     projectile    ;; project management mode
     diminish      ;; avoid clutter in modeline
