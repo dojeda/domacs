@@ -11,4 +11,6 @@ auto-save-list
 request
 .mc-lists.el
 recentf
+.\#recentf
 bookmarks
+abbrev_defs
